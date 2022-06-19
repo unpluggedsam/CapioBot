@@ -8,7 +8,8 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * A list of all the {@link Command} Objects that can be used. 
+ * A list of all the {@link Command} Objects that can be used.
+ * When creating a new command add it to the List.
  */
 public class CommandList {
 
