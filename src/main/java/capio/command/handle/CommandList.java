@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * A list of all the {@link Command} Objects that can be used
+ * A list of all the {@link Command} Objects that can be used. 
  */
 public class CommandList {
 
@@ -17,7 +17,6 @@ public class CommandList {
     private CommandList() {
 
     }
-
     public static List<Command> getCommandList() {
         return Collections.unmodifiableList(commandList);
     }

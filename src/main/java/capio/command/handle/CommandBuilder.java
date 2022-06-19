@@ -24,9 +24,6 @@ public class CommandBuilder {
                 (Command) -> command[0] = Command,
                 () -> command[0] = new NullCommand()
         );
-
-
         return (Command) command[0];
-
     }
 }
