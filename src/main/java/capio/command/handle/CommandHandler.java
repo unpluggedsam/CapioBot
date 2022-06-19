@@ -30,7 +30,7 @@ public class CommandHandler extends ListenerAdapter {
     /**
      * Executes the command
      * @param command The Command that is being executed.
-     * @param event The message that calls the command
+     * @param event The message event.
      */
     public void executeCommand(Command command, MessageReceivedEvent event, String[] args) {
         try {

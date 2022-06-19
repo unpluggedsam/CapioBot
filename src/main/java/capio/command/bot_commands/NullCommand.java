@@ -3,7 +3,8 @@ package capio.command.bot_commands;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 /**
- * A command that does nothing
+ * A command used to avoid a {@link NullPointerException} being thrown
+ * when a User trys to enter a {@link Command} that does not exist.
  */
 public class NullCommand implements Command {
     @Override
