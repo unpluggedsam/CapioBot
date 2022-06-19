@@ -5,12 +5,15 @@ import net.dv8tion.jda.api.entities.Role;
 
 import java.util.List;
 
+/**
+ * A factory class used to instantiate {@link Role}'s from an <code>ID</code>.
+ */
 public class RoleFactory {
     public static Role createRole(Guild guild, long ID) {
         return guild.getRoleById(ID);
     }
 
-    // Overloaded just so the user can tell the name of the Role
+    // Method overloaded simply so the developer can easily tell the name of the Role in the code.
     public static Role createRole(Guild guild, long ID, String name) {
         return guild.getRoleById(ID);
     }
