@@ -9,7 +9,8 @@ import java.util.List;
 
 /**
  * A list of all the {@link Command} Objects that can be used.
- * When creating a new command add it to the List.
+ * If a new {@link Command} object is created then all the developer has
+ * to do to enable it is add it to the <code>commandList</code> {@link List}.
  */
 public class CommandList {
 
@@ -18,6 +19,11 @@ public class CommandList {
     private CommandList() {
 
     }
+
+    /**
+     *
+     * @return A {@link List} of all the {@link Command}'s.
+     */
     public static List<Command> getCommandList() {
         return Collections.unmodifiableList(commandList);
     }
