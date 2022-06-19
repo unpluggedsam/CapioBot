@@ -1,5 +1,6 @@
 package capio.command.bot_commands;
 
+import capio.CapioBot;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 /**
@@ -9,7 +10,7 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 public class NullCommand implements Command {
     @Override
     public void execute(MessageReceivedEvent event, String[] args) {
-        event.getGuildChannel().sendMessage("Not a valid command!").queue();
+        event.getGuildChannel().sendMessage("Not a valid command! Use " + CapioBot.prefix + "commands to get a full list of commands.").queue();
     }
 
     @Override
