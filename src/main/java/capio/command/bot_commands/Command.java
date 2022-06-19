@@ -15,20 +15,23 @@ import java.util.List;
 public interface Command {
 
     /**
-     * Whatever the Command should do
-     *
-     * @param event
+     * The functionality that the command should execute when the User calls it.
+     * @param event The event triggered by the User sending a message.
      */
     void execute(MessageReceivedEvent event, String[] args);
 
     /**
-     * The command name
-     *
-     * @return the command name
+     * @return The command name (the text needed to trigger the command).
      */
     String getCommandName();
 
 
+    /**
+     * A convience method to reduce inter-dependency between Objects. It allows a User to
+     * get all of the required {@link Role}'s without accessing the {@link PermissionController}.
+     * @param event The event triggered by the User sending a message.
+     * @return A {@link List} of {@link Role}'s that the User must have to execute the command.
+     */
     default List<Role> getRequiredRoles(MessageReceivedEvent event) {
         List list = new ArrayList<Role>();
         getPermissionController().forEach(controller -> {
@@ -39,6 +42,12 @@ public interface Command {
         return list;
     }
 
+    /**
+     * Gets the {@link PermissionController} for that command. Returns a {@link BasicPermission} controller
+     * unless it is overriden.
+     * @return A {@link List} of {@link PermissionController}'s that the {@link Command} uses to control
+     * Users access to it.
+     */
     default List<PermissionController> getPermissionController() {
         return List.of(new BasicPermission());
     }
