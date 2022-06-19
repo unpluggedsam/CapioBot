@@ -1,7 +1,7 @@
 package capio.command.handle;
 
 import capio.command.bot_commands.Command;
-import capio.command.bot_commands.DeleteCommand;
+import capio.command.bot_commands.moderation_commands.DeleteCommand;
 import capio.command.bot_commands.ListCommand;
 import capio.command.bot_commands.PingPong;
 

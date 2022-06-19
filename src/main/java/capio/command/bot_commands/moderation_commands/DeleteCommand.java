@@ -1,5 +1,6 @@
-package capio.command.bot_commands;
+package capio.command.bot_commands.moderation_commands;
 
+import capio.command.bot_commands.Command;
 import capio.command.permission_handle.AdminPermission;
 import capio.command.permission_handle.PermissionController;
 import net.dv8tion.jda.api.entities.Message;
