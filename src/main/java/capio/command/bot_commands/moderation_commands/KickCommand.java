@@ -13,7 +13,6 @@ public class KickCommand implements Command {
     @Override
     public void execute(MessageReceivedEvent event, String[] args) {
         Member member = event.getMessage().getMentions().getMembers().get(0);
-
         if (member.hasPermission(Permission.ADMINISTRATOR)) {
             event.getGuildChannel().sendMessage("Can't kick an Administrator!").queue();
         } else {
@@ -28,6 +27,6 @@ public class KickCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Kicks a User";
+        return "Kicks a User. First argument is the User mention.";
     }
 }
