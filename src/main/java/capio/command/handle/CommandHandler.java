@@ -8,18 +8,21 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import java.util.Collections;
 import java.util.Objects;
 
+/**
+ * Delegates and executes {@link Command}'s.
+ */
 public class CommandHandler extends ListenerAdapter {
 
     /**
-     * Delegates commands and executes them
-     * @param event message event
+     * When a message is sent on the server this method gets called.
+     * It checks if the message starts with the bot prefix and if it does then
+     * calls the executeCommand method().
+     * @param event The message event.
      */
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
-
-        String[] args = event.getMessage().getContentRaw().split("\\s+");
-
-        if(args[0].substring(0, 1).equals(CapioBot.prefix)) {
+        if(event.getMessage().getContentRaw().substring(0, CapioBot.prefix.length()).equals(CapioBot.prefix)) {
+            String[] args = event.getMessage().getContentRaw().split("\\s+");
             executeCommand(CommandBuilder.createCommand(args[0].substring(1)), event, args);
         }
     }
