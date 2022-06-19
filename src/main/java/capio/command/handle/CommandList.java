@@ -3,7 +3,7 @@ package capio.command.handle;
 import capio.command.bot_commands.Command;
 import capio.command.bot_commands.moderation_commands.DeleteCommand;
 import capio.command.bot_commands.ListCommand;
-import capio.command.bot_commands.PingPong;
+import capio.command.bot_commands.misc_commands.PingPong;
 
 import java.util.Collections;
 import java.util.List;
