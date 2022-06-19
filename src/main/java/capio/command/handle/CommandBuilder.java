@@ -11,10 +11,10 @@ public class CommandBuilder {
 
     /**
      * Checks the {@link CommandList#getCommandList} method to see if the name
-     * that the User entered is a Command that exists.
-     * @param commandName the name of the Command the User is trying to use
+     * that the User entered is a {@link Command} that exists.
+     * @param commandName the name of the Command the User is trying to use.
      * @return a {@link Command} with the name that the user enters or a
-     * {@link NullCommand}
+     * {@link NullCommand}.
      */
     public static Command createCommand(String commandName) {
 
