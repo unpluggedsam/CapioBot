@@ -2,6 +2,7 @@ package capio.command.handle;
 
 import capio.command.bot_commands.Command;
 import capio.command.bot_commands.DeleteCommand;
+import capio.command.bot_commands.ListCommand;
 import capio.command.bot_commands.PingPong;
 
 import java.util.Collections;
@@ -14,7 +15,7 @@ import java.util.List;
  */
 public class CommandList {
 
-    private static List<Command> commandList = List.of(new PingPong(), new DeleteCommand());
+    private static List<Command> commandList = List.of(new PingPong(), new DeleteCommand(), new ListCommand());
 
     private CommandList() {
 

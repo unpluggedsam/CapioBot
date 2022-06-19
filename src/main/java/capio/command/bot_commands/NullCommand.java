@@ -17,4 +17,9 @@ public class NullCommand implements Command {
         return null;
     }
 
+    @Override
+    public String getDescription() {
+        return null;
+    }
+
 }

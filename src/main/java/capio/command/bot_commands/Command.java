@@ -51,4 +51,10 @@ public interface Command {
     default List<PermissionController> getPermissionController() {
         return List.of(new BasicPermission());
     }
+
+    /**
+     *
+     * @return A description of the {@link Command}.
+     */
+    String getDescription();
 }

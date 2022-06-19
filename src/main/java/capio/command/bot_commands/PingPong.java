@@ -13,5 +13,10 @@ public class PingPong implements Command {
         return "ping";
     }
 
+    @Override
+    public String getDescription() {
+        return "Let's play some pingpong!";
+    }
+
 
 }
