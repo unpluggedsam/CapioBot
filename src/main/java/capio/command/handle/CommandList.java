@@ -4,6 +4,7 @@ import capio.command.bot_commands.Command;
 import capio.command.bot_commands.moderation_commands.DeleteCommand;
 import capio.command.bot_commands.ListCommand;
 import capio.command.bot_commands.misc_commands.PingPong;
+import capio.command.bot_commands.moderation_commands.KickCommand;
 
 import java.util.Collections;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.List;
  */
 public class CommandList {
 
-    private static List<Command> commandList = List.of(new PingPong(), new DeleteCommand(), new ListCommand());
+    private static List<Command> commandList = List.of(new PingPong(), new DeleteCommand(), new ListCommand(), new KickCommand());
 
     private CommandList() {
 
