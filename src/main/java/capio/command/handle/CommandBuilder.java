@@ -20,7 +20,7 @@ public class CommandBuilder {
 
         final Command[] command = new Command[1];
 
-        CommandList.getCommandList().stream().filter(Command -> Command.getCommandName().equals(commandName)).findFirst().ifPresentOrElse(
+        CommandList.getCommandList().stream().filter(Command -> Command.getCommandName().equalsIgnoreCase(commandName)).findFirst().ifPresentOrElse(
                 (Command) -> command[0] = Command,
                 () -> command[0] = new NullCommand()
         );
