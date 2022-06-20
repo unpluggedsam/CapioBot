@@ -1,4 +1,56 @@
 package capio.command.bot_commands.moderation_commands;
 
-public class MuteCommand {
+import capio.command.bot_commands.Command;
+import capio.command.permission_handle.RoleFactory;
+import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.Role;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+
+public class MuteCommand implements Command {
+    @Override
+    public void execute(MessageReceivedEvent event, String[] args) {
+
+        Member member = event.getMessage().getMentions().getMembers().get(0);
+
+        // mute role
+        Role role = RoleFactory.createRole(event.getGuild(), 988245680453738546L, "Mute");
+
+        if (member.hasPermission(Permission.ADMINISTRATOR)) {
+            event.getGuildChannel().sendMessage("Can't mute an Administrator!").queue();
+        } else {
+            if(args.length == 3) {
+                event.getGuild().addRoleToMember(member, role).queue();
+                event.getGuildChannel().sendMessage("Muted " + args[1] + " for " + args[2] + " minute(s)!").queue();
+
+                new java.util.Timer().schedule(
+                        new java.util.TimerTask() {
+                            @Override
+                            public void run() {
+                                event.getGuild().removeRoleFromMember(member, role).queue();
+                                event.getGuildChannel().sendMessage("Unmuted " + args[1]  + "!").queue();
+                            }
+                        }, Integer.parseInt(args[2]) * 60000
+                );
+            } else {
+                if(!member.getRoles().contains(role)) {
+                    event.getGuild().addRoleToMember(member, role).queue();
+                    event.getGuildChannel().sendMessage("Muted " + args[1]  + "!").queue();
+                } else {
+                    event.getGuild().removeRoleFromMember(member, role).queue();
+                    event.getGuildChannel().sendMessage("Unmuted " + args[1]  + "!").queue();
+                }
+            }
+        }
+    }
+
+    @Override
+    public String getCommandName() {
+        return "Mute";
+    }
+
+    @Override
+    public String getDescription() {
+        return "Mute a User for a amount of time. First argument is the amount of time the User will be muted for.";
+    }
 }

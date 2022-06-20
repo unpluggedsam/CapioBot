@@ -40,6 +40,7 @@ public class CommandHandler extends ListenerAdapter {
                 event.getGuildChannel().sendMessage("Invalid permissions!").queue();
             }
         } catch(ArrayIndexOutOfBoundsException e) {
+            e.printStackTrace();
             event.getGuildChannel().sendMessage("Not enough arguments!").queue();
         }
     }
