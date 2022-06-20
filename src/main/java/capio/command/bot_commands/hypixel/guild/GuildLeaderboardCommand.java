@@ -9,7 +9,7 @@ import java.util.UUID;
 public class GuildLeaderboardCommand implements Command {
     @Override
     public void execute(MessageReceivedEvent event, String[] args) {
-        HypixelAPI api = new HypixelAPI(UUID.fromString("9b455d0b-249b-4e04-90bb-aabee463ef6c"));
+
 
 
     }
