@@ -1,9 +1,13 @@
 package capio.command.bot_commands.moderation;
 
 import capio.command.bot_commands.Command;
+import capio.command.permission_handle.AdminPermission;
+import capio.command.permission_handle.PermissionController;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+
+import java.util.List;
 
 /**
  * Kicks a member out of the server.
@@ -28,5 +32,10 @@ public class KickCommand implements Command {
     @Override
     public String getDescription() {
         return "Kicks a User. First argument is the User mention.";
+    }
+
+    @Override
+    public List<PermissionController> getPermissionController() {
+        return List.of(new AdminPermission());
     }
 }

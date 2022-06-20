@@ -1,9 +1,14 @@
 package capio.command.bot_commands.moderation;
 
 import capio.command.bot_commands.Command;
+import capio.command.permission_handle.AdminPermission;
+import capio.command.permission_handle.BasicPermission;
+import capio.command.permission_handle.PermissionController;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+
+import java.util.List;
 
 public class BanCommand implements Command {
     @Override
@@ -24,5 +29,10 @@ public class BanCommand implements Command {
     @Override
     public String getDescription() {
         return "Ban a member. First argument is tagging the member and the second one is the reason.";
+    }
+
+    @Override
+    public List<PermissionController> getPermissionController() {
+        return List.of(new AdminPermission());
     }
 }

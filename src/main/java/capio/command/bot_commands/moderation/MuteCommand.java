@@ -1,11 +1,15 @@
 package capio.command.bot_commands.moderation;
 
 import capio.command.bot_commands.Command;
+import capio.command.permission_handle.AdminPermission;
+import capio.command.permission_handle.PermissionController;
 import capio.command.permission_handle.RoleFactory;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+
+import java.util.List;
 
 public class MuteCommand implements Command {
     @Override
@@ -52,5 +56,10 @@ public class MuteCommand implements Command {
     @Override
     public String getDescription() {
         return "Mute a User for a amount of time. First argument is the amount of time the User will be muted for.";
+    }
+
+    @Override
+    public List<PermissionController> getPermissionController() {
+        return List.of(new AdminPermission());
     }
 }
