@@ -13,11 +13,24 @@
         <maven.compiler.target>18</maven.compiler.target>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>Hypixel</id>
+            <url>https://repo.hypixel.net/repository/Hypixel/</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
             <version>5.0.0-alpha.12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.hypixel</groupId>
+            <artifactId>HypixelAPI</artifactId>
+            <version>3.0.0</version>
         </dependency>
     </dependencies>
 
