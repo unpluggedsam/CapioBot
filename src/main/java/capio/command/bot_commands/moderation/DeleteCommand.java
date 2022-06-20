@@ -1,4 +1,4 @@
-package capio.command.bot_commands.moderation_commands;
+package capio.command.bot_commands.moderation;
 
 import capio.command.bot_commands.Command;
 import capio.command.permission_handle.AdminPermission;

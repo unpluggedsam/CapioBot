@@ -1,6 +1,7 @@
-package capio.command.bot_commands;
+package capio.command.bot_commands.utilitys;
 
 import capio.CapioBot;
+import capio.command.bot_commands.Command;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 /**

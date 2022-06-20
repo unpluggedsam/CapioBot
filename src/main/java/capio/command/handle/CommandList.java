@@ -1,12 +1,12 @@
 package capio.command.handle;
 
 import capio.command.bot_commands.Command;
-import capio.command.bot_commands.moderation_commands.BanCommand;
-import capio.command.bot_commands.moderation_commands.DeleteCommand;
-import capio.command.bot_commands.ListCommand;
-import capio.command.bot_commands.misc_commands.PingPong;
-import capio.command.bot_commands.moderation_commands.KickCommand;
-import capio.command.bot_commands.moderation_commands.MuteCommand;
+import capio.command.bot_commands.moderation.BanCommand;
+import capio.command.bot_commands.moderation.DeleteCommand;
+import capio.command.bot_commands.help.ListCommand;
+import capio.command.bot_commands.misc.PingPong;
+import capio.command.bot_commands.moderation.KickCommand;
+import capio.command.bot_commands.moderation.MuteCommand;
 
 import java.util.Collections;
 import java.util.List;

@@ -1,7 +1,7 @@
 package capio.command.handle;
 
 import capio.command.bot_commands.Command;
-import capio.command.bot_commands.NullCommand;
+import capio.command.bot_commands.utilitys.NullCommand;
 
 /**
  * Builds {@link Command} Objects

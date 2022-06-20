@@ -1,4 +1,4 @@
-package capio.command.bot_commands.misc_commands;
+package capio.command.bot_commands.misc;
 
 import capio.command.bot_commands.Command;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
