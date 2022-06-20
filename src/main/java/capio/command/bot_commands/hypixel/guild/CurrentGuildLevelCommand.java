@@ -9,7 +9,12 @@ public class CurrentGuildLevelCommand implements Command {
     @Override
     public void execute(MessageReceivedEvent event, String[] args) {
         Guild guild = new Guild();
-        event.getGuildChannel().sendMessage(String.format("The current guild level of %s is %s", args[1], guild.getLevel(args[1]))).queue();
+        try {
+            event.getGuildChannel().sendMessage(String.format("The current guild level of %s is %s", args[1], guild.getLevel(args[1]))).queue();
+        } catch(NullPointerException e) {
+            event.getGuildChannel().sendMessage(String.format("The guild %s does not exist!", args[1])).queue();
+        }
+
     }
 
     @Override
