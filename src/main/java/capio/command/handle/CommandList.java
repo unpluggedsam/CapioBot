@@ -1,7 +1,7 @@
 package capio.command.handle;
 
 import capio.command.bot_commands.Command;
-import capio.command.bot_commands.hypixel.guild.CurrentLevelCommand;
+import capio.command.bot_commands.hypixel.guild.CurrentGuildLevelCommand;
 import capio.command.bot_commands.moderation.BanCommand;
 import capio.command.bot_commands.moderation.DeleteCommand;
 import capio.command.bot_commands.help.ListCommand;
@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class CommandList {
 
-    private static List<Command> commandList = List.of(new PingPong(), new DeleteCommand(), new ListCommand(), new KickCommand(), new BanCommand(), new MuteCommand(), new CurrentLevelCommand());
+    private static List<Command> commandList = List.of(new PingPong(), new DeleteCommand(), new ListCommand(), new KickCommand(), new BanCommand(), new MuteCommand(), new CurrentGuildLevelCommand());
 
     private CommandList() {
 
