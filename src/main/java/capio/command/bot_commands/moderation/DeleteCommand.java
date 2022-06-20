@@ -17,8 +17,15 @@ public class DeleteCommand implements Command {
     public void execute(MessageReceivedEvent event, String[] args) {
         event.getMember();
         int amountMessagesToDelete = Integer.parseInt(args[1]);
-        List<Message> messages = event.getChannel().getHistory().retrievePast(Integer.parseInt(args[1])).complete();
-        event.getGuildChannel().deleteMessages(messages).queue();
+        try {
+            event.getGuildChannel()
+            List<Message> messages = event.getChannel().getHistory().retrievePast(Integer.parseInt(args[1])).complete();
+            event.getGuildChannel().deleteMessages(messages).queue();
+        } catch(IllegalArgumentException e) {
+
+        }
+
+
     }
 
     @Override

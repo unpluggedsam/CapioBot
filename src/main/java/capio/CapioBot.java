@@ -2,9 +2,11 @@ package capio;
 
 import capio.command.handle.CommandHandler;
 import capio.config.ConfigReader;
+import capio.listener.UserJoinListener;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.requests.GatewayIntent;
 
 import javax.security.auth.login.LoginException;
 
@@ -15,9 +17,11 @@ public class CapioBot {
     public static void main(String[] args) throws LoginException {
         JDA bot = JDABuilder.createDefault(ConfigReader.getToken())
                 .setActivity(Activity.listening("Serving the loldirt guild"))
+                .enableIntents(GatewayIntent.GUILD_MEMBERS)
                         .build();
 
         bot.addEventListener(new CommandHandler());
+        bot.addEventListener(new UserJoinListener());
 
     }
 }
