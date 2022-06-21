@@ -23,15 +23,18 @@ public class GuildLeaderboard {
         }
     }
 
+    /**
+     * Parses the sk1er.club website to get the guild leaderboard information.
+     * @param amount Amount of guilds around the retrieved guild the List should return.
+     * @param guildName The name of the guild that the User is trying to access.
+     * @return
+     */
     public List<Guild> getGuildFromHTML(int amount, String guildName) {
 
         ArrayList<Guild> guildList = new ArrayList<Guild>();
 
         Elements tbody =  doc.select("tbody");
         Elements tr = tbody.select("tr");
-
-
-
 
         tr.forEach(td -> {
             Guild guild = new Guild();
