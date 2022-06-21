@@ -1,5 +1,8 @@
 package capio.minecraft.hypixel.guild_statistics;
 
+/**
+ * Used to keep track of guild objects. 
+ */
 public class Guild {
 
     private double level;
