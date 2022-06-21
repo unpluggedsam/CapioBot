@@ -12,7 +12,7 @@ import java.awt.*;
 
 public class GuildLeaderboardCommand implements Command {
 
-    GuildLeaderboard guildLB = new GuildLeaderboard();
+    private final GuildLeaderboard guildLB = new GuildLeaderboard();
     @Override
     public void execute(MessageReceivedEvent event, String[] args) {
 

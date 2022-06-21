@@ -15,8 +15,6 @@ public class DeleteCommand implements Command {
 
     @Override
     public void execute(MessageReceivedEvent event, String[] args) {
-        event.getMember();
-        int amountMessagesToDelete = Integer.parseInt(args[1]);
         try {
             event.getGuildChannel().sendMessage(String.format("Attempting to delete %s messsages", args[1])).queue();
             Thread.sleep(200);
