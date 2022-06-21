@@ -64,6 +64,6 @@ public class DisplayGuildLeaderboardHourlyCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Print the guild leaderboard in a channel every 3 hours. ";
+        return "Print the guild leaderboard in a channel every 3 hours. First argument is the guild that is being tracked.";
     }
 }
