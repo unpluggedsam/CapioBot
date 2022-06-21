@@ -54,7 +54,7 @@ public class DisplayGuildLeaderboardHourlyCommand implements Command {
 
     @Override
     public String getCommandName() {
-        return "print-leaderboard";
+        return "hourly-leaderboard";
     }
 
     @Override
