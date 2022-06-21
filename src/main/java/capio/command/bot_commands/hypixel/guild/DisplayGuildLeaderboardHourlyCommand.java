@@ -7,33 +7,49 @@ import capio.command.permission_handle.PermissionController;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.*;
 
 public class DisplayGuildLeaderboardHourlyCommand implements Command {
 
-    private boolean isEnabled;
+    private boolean isEnabled = false;
 
     private final Command glc = new GuildLeaderboardCommand();
 
 
+
+
+
+
     @Override
     public void execute(MessageReceivedEvent event, String[] args) {
-        if(!isEnabled) isEnabled = true;
-        else isEnabled = false;
-        while(isEnabled) {
-            ScheduledExecutorService scheduledExecutorService =
-                    Executors.newScheduledThreadPool(5);
+        final Timer timer = new Timer();
+        TimerTask hourlyTask = new TimerTask() {
+            @Override
+            public void run() {
+                if(isEnabled) {
+                    glc.execute(event, args);
+                } else {
+                    timer.cancel();
+                }
 
-            ScheduledFuture scheduledFuture =
-                    scheduledExecutorService.schedule(new Callable() {
-                                                          public Object call() throws Exception {
-                                                              glc.execute(event, args);
-                                                              return "Called!";
-                                                          }
-                                                      },
-                            3,
-                            TimeUnit.HOURS);
+            }
+        };
+
+        if(!isEnabled) {
+            event.getGuildChannel().sendMessage("Enabled GuildLeaderboardCommand").queue();
+            isEnabled = true;
+
+            timer.schedule (hourlyTask, 0l, 1000*60*60*3);
         }
+        else {
+            event.getGuildChannel().sendMessage("Disabled GuildLeaderboardCommand").queue();
+            isEnabled = false;
+        }
+
+
+
     }
 
     @Override

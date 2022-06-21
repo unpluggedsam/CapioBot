@@ -25,7 +25,7 @@ public class CommandList {
             new PingPong(), new DeleteCommand(), new ListCommand(),
             new KickCommand(), new BanCommand(), new MuteCommand(),
             new CurrentGuildLevelCommand(), new GuildLeaderboardCommand(),
-            new DisplayGuildLeaderboardHourlyCommand());
+            new DisplayGuildLeaderboardHourlyCommand(), new DisplayGuildLeaderboardHourlyCommand());
 
     private CommandList() {
 
