@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class CommandList {
 
-    private static List<Command> commandList = List.of(
+    private static final List<Command> commandList = List.of(
             new PingPong(), new DeleteCommand(), new ListCommand(),
             new KickCommand(), new BanCommand(), new MuteCommand(),
             new CurrentGuildLevelCommand(), new GuildLeaderboardCommand(),

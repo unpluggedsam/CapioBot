@@ -2,14 +2,12 @@ package capio.command.bot_commands.hypixel.guild;
 
 import capio.command.bot_commands.Command;
 import capio.command.permission_handle.AdminPermission;
-import capio.command.permission_handle.BasicPermission;
 import capio.command.permission_handle.PermissionController;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.*;
 
 public class DisplayGuildLeaderboardHourlyCommand implements Command {
 
@@ -41,14 +39,12 @@ public class DisplayGuildLeaderboardHourlyCommand implements Command {
             event.getGuildChannel().sendMessage("Enabled GuildLeaderboardCommand").queue();
             isEnabled = true;
 
-            timer.schedule (hourlyTask, 0l, 1000*60*60*3);
+            timer.schedule (hourlyTask, 0L, 1000*60*60*3);
         }
         else {
             event.getGuildChannel().sendMessage("Disabled GuildLeaderboardCommand").queue();
             isEnabled = false;
         }
-
-
 
     }
 
