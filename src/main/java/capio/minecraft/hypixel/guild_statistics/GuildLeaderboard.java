@@ -48,7 +48,19 @@ public class GuildLeaderboard {
                 .findFirst()
                 .orElse(-1);
 
-        return guildList.subList(index - amount / 2, index + amount / 2);
+        try {
+            return guildList.subList(index - amount / 2, index + amount / 2);
+        } catch(IndexOutOfBoundsException e) {
+            try {
+                return guildList.subList((index + 1) * -1, amount);
+            } catch(IndexOutOfBoundsException e1) {
+                try {
+                    return guildList.subList(index + 1, amount);
+                } catch(IndexOutOfBoundsException e2) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+        return null;
     }
-
 }
