@@ -6,7 +6,7 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 public class KicklistCommand implements Command {
     @Override
     public void execute(MessageReceivedEvent event, String[] args) {
-        
+
     }
 
     @Override
