@@ -3,7 +3,7 @@ package capio.command.bot_commands.hypixel.application;
 import capio.command.bot_commands.Command;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
-public class accept implements Command {
+public class DenyCommand implements Command {
     @Override
     public void execute(MessageReceivedEvent event, String[] args) {
 
