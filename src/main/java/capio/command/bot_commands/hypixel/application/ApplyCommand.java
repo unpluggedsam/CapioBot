@@ -14,11 +14,6 @@ public class ApplyCommand implements Command {
     @Override
     public void execute(MessageReceivedEvent event, String[] args) {
         Player player = HypixelAPIHelper.createPlayerFromUsername(args[1]);
-
-        if(stats.doesUserMeetRequirements(player)) {
-            command = new GuildInviteCommand();
-            command.execute(event, args);
-        }
     }
 
     @Override
