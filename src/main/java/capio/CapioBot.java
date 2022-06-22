@@ -2,7 +2,7 @@ package capio;
 
 import capio.command.handle.CommandHandler;
 import capio.config.ConfigReader;
-import capio.listener.UserJoinListener;
+import capio.command.listener.UserJoinListener;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;

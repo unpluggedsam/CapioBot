@@ -1,4 +1,4 @@
-package capio.listener;
+package capio.command.listener;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
