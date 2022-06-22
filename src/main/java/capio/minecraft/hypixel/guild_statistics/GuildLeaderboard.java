@@ -47,7 +47,7 @@ public class GuildLeaderboard {
         });
 
         int index = IntStream.range(0, guildList.size())
-                .filter(i -> guildList.get(i).getName().equals(guildName))
+                .filter(i -> guildList.get(i).getName().equalsIgnoreCase(guildName))
                 .findFirst()
                 .orElse(-1);
 
