@@ -11,11 +11,11 @@ public class GuildInviteCommand implements Command {
 
     @Override
     public String getCommandName() {
-        return null;
+        return "invite";
     }
 
     @Override
     public String getDescription() {
-        return null;
+        return "Invite a member to the guild. First argument is the players IGN.";
     }
 }
