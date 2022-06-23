@@ -11,12 +11,12 @@ public class DenyCommand implements Command {
 
     @Override
     public String getCommandName() {
-        return null;
+        return "deny";
     }
 
     @Override
     public String getDescription() {
-        return null;
+        return "Deny a player from the guild. First argument is the mention of the User that is being denied.";
     }
 
     @Override
