@@ -57,5 +57,8 @@ public class CommandList {
                 }
             }
             return Collections.unmodifiableList(commands);
+        } catch (RuntimeException e) {
+            throw new RuntimeException(e);
         }
+    }
     }
