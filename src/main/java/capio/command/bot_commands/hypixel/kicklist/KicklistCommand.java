@@ -11,11 +11,11 @@ public class KicklistCommand implements Command {
 
     @Override
     public String getCommandName() {
-        return null;
+        return "kicklist";
     }
 
     @Override
     public String getDescription() {
-        return null;
+        return "Gets the kicklist for a guild. First argument is the guild, second argument is the amount of GXP each member needs.";
     }
 }
