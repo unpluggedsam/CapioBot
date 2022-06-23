@@ -11,11 +11,11 @@ public class GuildMuteCommand implements Command {
 
     @Override
     public String getCommandName() {
-        return null;
+        return "guild-mute";
     }
 
     @Override
     public String getDescription() {
-        return null;
+        return "Mute a member in the guild. First argument is the Players IGN.";
     }
 }
