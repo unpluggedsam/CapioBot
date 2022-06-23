@@ -34,4 +34,9 @@ public class ListCommand implements Command {
     public String getDescription() {
         return "A list of all the Capio commands!";
     }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }

@@ -19,5 +19,10 @@ public class PingPong implements Command {
         return "Let's play some pingpong!";
     }
 
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
 
 }
