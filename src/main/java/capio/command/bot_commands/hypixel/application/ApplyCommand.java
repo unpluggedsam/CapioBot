@@ -26,4 +26,9 @@ public class ApplyCommand implements Command {
         return null;
     }
 
+    @Override
+    public boolean isEnabled() {
+        return false;
+    }
+
 }

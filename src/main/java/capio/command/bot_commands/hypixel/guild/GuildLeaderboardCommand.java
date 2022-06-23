@@ -38,4 +38,9 @@ public class GuildLeaderboardCommand implements Command {
     public String getDescription() {
         return "Gets the guilds current position in the leaderboard.";
     }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }

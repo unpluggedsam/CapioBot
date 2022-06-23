@@ -18,4 +18,9 @@ public class GuildMuteCommand implements Command {
     public String getDescription() {
         return "Mute a member in the guild. First argument is the Players IGN.";
     }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
+    }
 }

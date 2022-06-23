@@ -18,4 +18,9 @@ public class DenyCommand implements Command {
     public String getDescription() {
         return null;
     }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
+    }
 }

@@ -18,4 +18,9 @@ public class KicklistCommand implements Command {
     public String getDescription() {
         return "Gets the kicklist for a guild. First argument is the guild, second argument is the amount of GXP each member needs.";
     }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
+    }
 }

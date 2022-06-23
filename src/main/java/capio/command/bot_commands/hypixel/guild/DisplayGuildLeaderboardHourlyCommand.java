@@ -15,11 +15,6 @@ public class DisplayGuildLeaderboardHourlyCommand implements Command {
 
     private final Command glc = new GuildLeaderboardCommand();
 
-
-
-
-
-
     @Override
     public void execute(MessageReceivedEvent event, String[] args) {
         final Timer timer = new Timer();
@@ -61,5 +56,10 @@ public class DisplayGuildLeaderboardHourlyCommand implements Command {
     @Override
     public String getDescription() {
         return "Print the guild leaderboard in a channel every 3 hours. First argument is the guild that is being tracked.";
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }

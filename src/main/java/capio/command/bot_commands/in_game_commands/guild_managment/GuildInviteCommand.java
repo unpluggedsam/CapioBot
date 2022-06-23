@@ -18,4 +18,9 @@ public class GuildInviteCommand implements Command {
     public String getDescription() {
         return "Invite a member to the guild. First argument is the players IGN.";
     }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
+    }
 }

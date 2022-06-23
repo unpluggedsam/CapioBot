@@ -18,4 +18,9 @@ public class GuildKickCommand implements Command {
     public String getDescription() {
         return "Kick a member from the guild. First argument is the name.";
     }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
+    }
 }

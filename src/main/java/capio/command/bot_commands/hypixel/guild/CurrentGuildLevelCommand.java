@@ -25,4 +25,9 @@ public class CurrentGuildLevelCommand implements Command {
     public String getDescription() {
         return "Gets the current guild level. First argument is the guild name.";
     }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }
