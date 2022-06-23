@@ -18,7 +18,7 @@ public class ListCommand implements Command {
                 .setTitle("Command List")
                 .setColor(Color.red);
 
-        CommandList.getCommandList().stream().forEach(command -> {
+        CommandList.getCommandList().values().stream().forEach(command -> {
             embed.addField(command.getCommandName(), command.getDescription(), false);
         });
 

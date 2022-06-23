@@ -7,10 +7,7 @@ import org.springframework.context.annotation.ClassPathScanningCandidateComponen
 import org.springframework.core.type.filter.AssignableTypeFilter;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * A list of all the {@link Command} Objects that can be used.
@@ -26,8 +23,8 @@ public class CommandList {
     /**
      * @return A {@link List} of all the {@link Command}'s.
      */
-    public static List<Command> getCommandList() {
-        ArrayList<Command> commands = new ArrayList<Command>();
+    public static Map<Class<? extends Command>, Command> getCommandList() {
+        Map commands = new HashMap<Class<? extends Command>, Command>();
         try {
             final ClassPathScanningCandidateComponentProvider provider = new ClassPathScanningCandidateComponentProvider(false);
             provider.addIncludeFilter(new AssignableTypeFilter(Command.class));
@@ -39,7 +36,7 @@ public class CommandList {
                     Command command = (Command) Class.forName(component.getBeanClassName()).getConstructor().newInstance();
 
                     if (command.isEnabled()) {
-                        commands.add(command);
+                        commands.put(command.getClass(), command);
                     }
 
                 } catch (final IllegalArgumentException | SecurityException ignored) {
@@ -56,7 +53,7 @@ public class CommandList {
                     throw new RuntimeException(e);
                 }
             }
-            return Collections.unmodifiableList(commands);
+            return Collections.unmodifiableMap(commands);
         } catch (RuntimeException e) {
             throw new RuntimeException(e);
         }
