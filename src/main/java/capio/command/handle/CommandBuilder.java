@@ -1,5 +1,6 @@
 package capio.command.handle;
 
+
 import capio.command.bot_commands.Command;
 import capio.command.bot_commands.utilitys.NullCommand;
 
@@ -20,8 +21,8 @@ public class CommandBuilder {
 
         final Command[] command = new Command[1];
 
-        CommandList.getCommandList().stream().filter(Command -> Command.getCommandName().equalsIgnoreCase(commandName)).findFirst().ifPresentOrElse(
-                (Command) -> command[0] = Command,
+        CommandList.getCommandList().stream().filter(Command -> Command.getCommandName.equalsIgnoreCase(commandName)).findFirst().ifPresentOrElse(
+                (Command) -> command[0] = (capio.command.bot_commands.Command) Command,
                 () -> command[0] = new NullCommand()
         );
         return command[0];
