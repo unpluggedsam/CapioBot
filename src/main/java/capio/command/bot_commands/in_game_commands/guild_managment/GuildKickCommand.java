@@ -11,11 +11,11 @@ public class GuildKickCommand implements Command {
 
     @Override
     public String getCommandName() {
-        return null;
+        return "guild-kick";
     }
 
     @Override
     public String getDescription() {
-        return null;
+        return "Kick a member from the guild. First argument is the name.";
     }
 }
