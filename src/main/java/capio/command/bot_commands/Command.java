@@ -57,4 +57,9 @@ public interface Command {
      * @return A description of the {@link Command}.
      */
     String getDescription();
+
+    /**
+     * @return A boolean of whether a Command is enabled or not.
+     */
+    boolean isEnabled();
 }
