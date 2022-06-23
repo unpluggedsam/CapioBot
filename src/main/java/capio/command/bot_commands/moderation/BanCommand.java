@@ -32,6 +32,11 @@ public class BanCommand implements Command {
     }
 
     @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    @Override
     public List<PermissionController> getPermissionController() {
         return List.of(new AdminPermission());
     }

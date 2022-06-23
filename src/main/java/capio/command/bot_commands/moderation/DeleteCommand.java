@@ -43,4 +43,9 @@ public class DeleteCommand implements Command {
         return "Deletes messages. Enter an integer to specify how many messages you would like to delete.";
     }
 
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
 }

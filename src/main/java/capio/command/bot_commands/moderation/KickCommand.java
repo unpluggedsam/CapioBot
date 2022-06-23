@@ -35,6 +35,11 @@ public class KickCommand implements Command {
     }
 
     @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    @Override
     public List<PermissionController> getPermissionController() {
         return List.of(new AdminPermission());
     }

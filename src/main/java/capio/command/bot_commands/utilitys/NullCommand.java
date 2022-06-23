@@ -24,4 +24,8 @@ public class NullCommand implements Command {
         return null;
     }
 
+    @Override
+    public boolean isEnabled() {
+        return false;
+    }
 }
