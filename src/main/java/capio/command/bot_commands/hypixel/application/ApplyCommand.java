@@ -18,12 +18,12 @@ public class ApplyCommand implements Command {
 
     @Override
     public String getCommandName() {
-        return null;
+        return "apply";
     }
 
     @Override
     public String getDescription() {
-        return null;
+        return "Apply to the guild. First argument is the applicants IGN.";
     }
 
     @Override
