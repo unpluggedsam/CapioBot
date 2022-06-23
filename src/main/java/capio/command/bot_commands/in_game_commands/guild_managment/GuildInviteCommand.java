@@ -11,7 +11,7 @@ public class GuildInviteCommand implements Command {
 
     @Override
     public String getCommandName() {
-        return "invite";
+        return "guild-invite";
     }
 
     @Override
