@@ -13,12 +13,12 @@ public class AcceptCommand implements Command {
 
     @Override
     public String getCommandName() {
-        return null;
+        return "accept";
     }
 
     @Override
     public String getDescription() {
-        return null;
+        return "Accept a member into the guild. First argument is the mention of the User that is being accepted.";
     }
 
     @Override
