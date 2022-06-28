@@ -21,10 +21,8 @@ public class CommandHandler extends ListenerAdapter {
      */
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
-        if(event.getMessage().getContentRaw().startsWith(CapioBot.prefix)) {
             String[] args = event.getMessage().getContentRaw().split("\\s+");
             executeCommand(CommandBuilder.createCommand(args[0].substring(1)), event, args);
-        }
     }
 
     /**
