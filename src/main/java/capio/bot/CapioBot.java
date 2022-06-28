@@ -1,5 +1,6 @@
 package capio.bot;
 
+import capio.bot.handler.CapioListenerAdapter;
 import capio.command.handle.CommandHandler;
 import capio.config.ConfigReader;
 import capio.command.listener.UserJoinListener;
@@ -14,7 +15,6 @@ public class CapioBot {
 
     public static final String prefix = "^";
 
-    protected JDA bot;
 
     public static void main(String[] args) throws LoginException {
         JDA bot = JDABuilder.createDefault(ConfigReader.getDiscordToken())
@@ -22,8 +22,6 @@ public class CapioBot {
                 .enableIntents(GatewayIntent.GUILD_MEMBERS)
                         .build();
 
-        bot.addEventListener(new CommandHandler());
-        bot.addEventListener(new UserJoinListener());
-
+        bot.addEventListener(new CapioListenerAdapter());
     }
 }
