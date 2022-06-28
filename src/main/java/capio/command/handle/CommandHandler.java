@@ -1,6 +1,6 @@
 package capio.command.handle;
 
-import capio.CapioBot;
+import capio.bot.CapioBot;
 import capio.command.bot_commands.Command;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -15,7 +15,7 @@ public class CommandHandler extends ListenerAdapter {
 
     /**
      * When a message is sent on the server this method gets called.
-     * It checks if the message starts with the bot prefix and if it does then
+     * It checks if the message starts with the bot prefix and if it does then it
      * calls the executeCommand method().
      * @param event The message event.
      */

@@ -1,4 +1,4 @@
-package capio;
+package capio.bot;
 
 import capio.command.handle.CommandHandler;
 import capio.config.ConfigReader;
@@ -13,6 +13,8 @@ import javax.security.auth.login.LoginException;
 public class CapioBot {
 
     public static final String prefix = "^";
+
+    protected JDA bot;
 
     public static void main(String[] args) throws LoginException {
         JDA bot = JDABuilder.createDefault(ConfigReader.getDiscordToken())
