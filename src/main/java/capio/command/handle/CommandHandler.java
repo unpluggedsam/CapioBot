@@ -14,21 +14,9 @@ import java.util.Objects;
 /**
  * Delegates and executes {@link Command}'s.
  */
-public class CommandHandler extends ListenerAdapter implements CommandExecutedSubject {
+public class CommandHandler implements CommandExecutedSubject {
 
     List<CommandExecutedObserver> commandExecutedObserver = new ArrayList<>();
-
-    /**
-     * When a message is sent on the server this method gets called.
-     * It checks if the message starts with the bot prefix and if it does then it
-     * calls the executeCommand method().
-     * @param event The message event.
-     */
-    @Override
-    public void onMessageReceived(MessageReceivedEvent event) {
-            String[] args = event.getMessage().getContentRaw().split("\\s+");
-            executeCommand(CommandBuilder.createCommand(args[0].substring(1)), event, args);
-    }
 
     /**
      * Executes the command

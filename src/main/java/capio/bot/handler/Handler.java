@@ -1,15 +1,17 @@
 package capio.bot.handler;
 
 import capio.command.handle.CommandHandler;
+import capio.command.listener.MessageListener;
 import capio.command.listener.UserJoinListener;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class Handler {
 
-    private CommandHandler commandHandler;
-    private UserJoinListener userJoinListener;
+    private ListenerAdapter messageListener;
+    private ListenerAdapter userJoinListener;
 
 
-    public UserJoinListener getUserJoinListener() {
+    public ListenerAdapter getUserJoinListener() {
         return userJoinListener;
     }
 
@@ -17,12 +19,12 @@ public class Handler {
         this.userJoinListener = userJoinListener;
     }
 
-    public CommandHandler getCommandHandler() {
-        return commandHandler;
+    public ListenerAdapter getCommandHandler() {
+        return messageListener;
     }
 
-    public void setCommandHandler(CommandHandler commandHandler) {
-        this.commandHandler = commandHandler;
+    public void setCommandHandler(ListenerAdapter messageListener) {
+        this.messageListener = messageListener;
     }
 
 

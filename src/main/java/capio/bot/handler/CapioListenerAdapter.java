@@ -4,6 +4,7 @@ import capio.bot.CapioBot;
 import capio.command.handle.CommandBuilder;
 import capio.command.handle.CommandHandler;
 import capio.command.handle.CommandList;
+import capio.command.listener.MessageListener;
 import capio.command.listener.UserJoinListener;
 import capio.command_observer.CommandExecutedObserver;
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -40,7 +41,7 @@ public class CapioListenerAdapter extends ListenerAdapter implements CommandExec
             return CapiosGuilds.getHandlerFromGuild(guild);
         } else {
             Handler handler = new Handler();
-            handler.setCommandHandler(new CommandHandler());
+            handler.setCommandHandler(new MessageListener());
             handler.setUserJoinListener(new UserJoinListener());
             CapiosGuilds.addGuild(guild, handler);
             return handler;
