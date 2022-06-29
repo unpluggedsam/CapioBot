@@ -18,13 +18,12 @@ import java.awt.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CapioListenerAdapter extends ListenerAdapter implements CommandExecutedObserver {
+public class CapioListenerAdapter extends ListenerAdapter {
 
     private static final String loadingString = "Attempting to load Command .";
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         if (event.getMessage().getContentRaw().startsWith(CapioBot.prefix)) {
-            event.getGuildChannel().sendMessage(loadingString);
             Handler handler = createHandlerFromGuild(event.getGuild());
             handler.getCommandHandler().onMessageReceived(event);
         }
@@ -46,12 +45,6 @@ public class CapioListenerAdapter extends ListenerAdapter implements CommandExec
             CapiosGuilds.addGuild(guild, handler);
             return handler;
         }
-    }
-
-    @Override
-    public void commandExecuted(MessageReceivedEvent event) {
-        List<Message> messages = event.getChannel().getHistory().retrievePast(5).complete();
-        event.getGuildChannel().deleteMessages(messages.stream().filter(message -> message.getContentRaw().equals(loadingString)).collect(Collectors.toList())).queue();
     }
 }
 
