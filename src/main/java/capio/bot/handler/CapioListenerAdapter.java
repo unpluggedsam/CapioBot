@@ -1,26 +1,15 @@
 package capio.bot.handler;
 
 import capio.bot.CapioBot;
-import capio.command.handle.CommandBuilder;
-import capio.command.handle.CommandHandler;
-import capio.command.handle.CommandList;
 import capio.command.listener.MessageListener;
 import capio.command.listener.UserJoinListener;
-import capio.command_observer.CommandExecutedObserver;
-import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
-import java.awt.*;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class CapioListenerAdapter extends ListenerAdapter {
-
-    private static final String loadingString = "Attempting to load Command .";
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         if (event.getMessage().getContentRaw().startsWith(CapioBot.prefix)) {
