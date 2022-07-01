@@ -11,9 +11,7 @@ import java.util.Objects;
 /**
  * Delegates and executes {@link Command}'s.
  */
-public class CommandHandler implements CommandExecutedSubject {
-
-    List<CommandExecutedObserver> commandExecutedObserver = new ArrayList<>();
+public class CommandHandler {
 
     /**
      * Executes the command
