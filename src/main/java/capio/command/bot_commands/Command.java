@@ -62,6 +62,4 @@ public interface Command {
      * @return A boolean of whether a Command is enabled or not.
      */
     boolean isEnabled();
-
-
 }

@@ -1,14 +1,11 @@
 package capio.command.handle;
 
+import capio.bot.CapioBot;
 import capio.command.bot_commands.Command;
-import capio.command_observer.CommandExecutedObserver;
-import capio.command_observer.CommandExecutedSubject;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -33,23 +30,6 @@ public class CommandHandler implements CommandExecutedSubject {
         } catch(ArrayIndexOutOfBoundsException e) {
             e.printStackTrace();
             event.getGuildChannel().sendMessage("Not enough arguments!").queue();
-        } finally {
-            notifiyObservers(event);
         }
-    }
-
-    @Override
-    public void notifiyObservers(MessageReceivedEvent event) {
-        commandExecutedObserver.forEach(observer -> observer.commandExecuted(event));
-    }
-
-    @Override
-    public void addObserver(CommandExecutedObserver observer) {
-        commandExecutedObserver.add(observer);
-    }
-
-    @Override
-    public void removeObserver(CommandExecutedObserver observer) {
-        commandExecutedObserver.remove(observer);
     }
 }
