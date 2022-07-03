@@ -1,7 +1,5 @@
 package capio.bot;
 
-import capio.bot.handler.CapioListenerAdapter;
-import capio.command.handle.CommandHandler;
 import capio.command.listener.MessageListener;
 import capio.command.listener.ReadyListener;
 import capio.config.ConfigReader;
