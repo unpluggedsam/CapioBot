@@ -22,7 +22,7 @@ public class CommandBuilder {
         final Command[] command = new Command[1];
 
         CommandList.getCommandList().values().stream().filter(Command -> Command.getCommandName().equalsIgnoreCase(commandName)).findFirst().ifPresentOrElse(
-                (Command) -> command[0] = (capio.command.bot_commands.Command) Command,
+                (Command) -> command[0] = Command,
                 () -> command[0] = new NullCommand()
         );
         return command[0];
