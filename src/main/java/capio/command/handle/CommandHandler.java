@@ -21,7 +21,9 @@ public class CommandHandler {
     public void executeCommand(Command command, MessageReceivedEvent event, String[] args) {
         try {
             if(!Collections.disjoint(Objects.requireNonNull(event.getMember()).getRoles(), command.getRequiredRoles(event))) {
-                command.execute(event, args);
+                Thread commandThread = new Thread(() ->  command.execute(event, args));
+                commandThread.start();
+                commandThread.interrupt();
             } else {
                 event.getGuildChannel().sendMessage("Invalid permissions!").queue();
             }
