@@ -2,6 +2,8 @@ package capio.bot;
 
 import capio.bot.handler.CapioListenerAdapter;
 import capio.command.handle.CommandHandler;
+import capio.command.listener.MessageListener;
+import capio.command.listener.ReadyListener;
 import capio.config.ConfigReader;
 import capio.command.listener.UserJoinListener;
 import net.dv8tion.jda.api.JDA;
@@ -22,6 +24,8 @@ public class CapioBot {
                 .enableIntents(GatewayIntent.GUILD_MEMBERS)
                         .build();
 
-        bot.addEventListener(new CapioListenerAdapter());
+        bot.addEventListener(new MessageListener());
+        bot.addEventListener(new ReadyListener());
+        bot.addEventListener(new UserJoinListener());
     }
 }
