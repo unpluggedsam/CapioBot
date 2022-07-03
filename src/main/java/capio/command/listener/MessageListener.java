@@ -9,8 +9,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 public class MessageListener extends ListenerAdapter {
 
     private final CommandHandler handler = new CommandHandler();
-
-    private static final String loadingString = "Attempting to load Command .";
+    
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         if (event.getMessage().getContentRaw().startsWith(CapioBot.prefix)) {
