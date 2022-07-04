@@ -10,10 +10,10 @@ import java.util.Map;
 
 public class CurrentGuildLevelCommand implements Command {
     @Override
-    public void execute(MessageReceivedEvent event, String[] args,  Map<Class<? extends Command>, Command> commandList) {
+    public void execute(final MessageReceivedEvent event, final String[] args, final Map<Class<? extends Command>, Command> commandList) {
         try {
             event.getGuildChannel().sendMessage(String.format("The current guild level of %s is %s", args[1], HypixelAPIHelper.getGuildLevel(args[1]))).queue();
-        } catch(NullPointerException e) {
+        } catch(final NullPointerException e) {
             event.getGuildChannel().sendMessage(String.format("The guild %s does not exist!", args[1])).queue();
         }
 

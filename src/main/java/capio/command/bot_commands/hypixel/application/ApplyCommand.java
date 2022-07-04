@@ -14,8 +14,8 @@ public class ApplyCommand implements Command {
     RequiredStatistics stats = new RequiredStatistics();
     Command command;
     @Override
-    public void execute(MessageReceivedEvent event, String[] args,  Map<Class<? extends Command>, Command> commandList) {
-        Player player = HypixelAPIHelper.createPlayerFromUsername(args[1]);
+    public void execute(final MessageReceivedEvent event, final String[] args, final Map<Class<? extends Command>, Command> commandList) {
+        final Player player = HypixelAPIHelper.createPlayerFromUsername(args[1]);
     }
 
     @Override

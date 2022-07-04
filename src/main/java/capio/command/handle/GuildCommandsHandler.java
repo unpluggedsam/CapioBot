@@ -6,13 +6,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GuildCommandsHandler {
-    private Map<Guild, CommandList> guildCommandList = new HashMap();
+    private final Map<Guild, CommandList> guildCommandList = new HashMap();
 
-    public void addGuild(Guild guild) {
+    public void addGuild(final Guild guild) {
         guildCommandList.put(guild, new CommandList());
     }
 
-    public CommandList getGuildCommandList(Guild guild) {
+    public CommandList getGuildCommandList(final Guild guild) {
         return guildCommandList.get(guild);
     }
 

@@ -36,8 +36,8 @@ public interface Command {
      * @param event The event triggered by the User sending a message.
      * @return A {@link List} of {@link Role}'s that the User must have to execute the command.
      */
-    default List<Role> getRequiredRoles(MessageReceivedEvent event) {
-        List list = new ArrayList<Role>();
+    default List<Role> getRequiredRoles(final MessageReceivedEvent event) {
+        final List list = new ArrayList<Role>();
         getPermissionController().forEach(controller -> {
             controller.getRequiredRoles(event).forEach(role -> {
                 list.add(role);

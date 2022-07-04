@@ -15,10 +15,10 @@ import java.util.List;
 public class UserJoinListener extends ListenerAdapter {
 
     @Override
-    public void onGuildMemberJoin(GuildMemberJoinEvent event) {
-        Guild guild = event.getGuild();
+    public void onGuildMemberJoin(final GuildMemberJoinEvent event) {
+        final Guild guild = event.getGuild();
 
-        EmbedBuilder eb = new EmbedBuilder();
+        final EmbedBuilder eb = new EmbedBuilder();
 
         eb.setTitle("Welcome " + event.getMember().getEffectiveName()+ " to " + guild.getName());
         eb.setImage(event.getMember().getEffectiveAvatarUrl());

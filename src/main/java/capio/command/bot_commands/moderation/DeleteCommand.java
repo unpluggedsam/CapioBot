@@ -16,16 +16,16 @@ import java.util.Map;
 public class DeleteCommand implements Command {
 
     @Override
-    public void execute(MessageReceivedEvent event, String[] args,  Map<Class<? extends Command>, Command> commandList) {
+    public void execute(final MessageReceivedEvent event, final String[] args, final Map<Class<? extends Command>, Command> commandList) {
         try {
             event.getGuildChannel().sendMessage(String.format("Attempting to delete %s messsages", args[1])).queue();
             Thread.sleep(200);
-            List<Message> messages = event.getChannel().getHistory().retrievePast(Integer.parseInt(args[1])).complete();
+            final List<Message> messages = event.getChannel().getHistory().retrievePast(Integer.parseInt(args[1])).complete();
             event.getGuildChannel().deleteMessages(messages).queue();
-        } catch(IllegalArgumentException e) {
+        } catch(final IllegalArgumentException e) {
             event.getGuildChannel().sendMessage(String.format(e.getMessage())).queue();
             e.printStackTrace();
-        } catch (InterruptedException e) {
+        } catch (final InterruptedException e) {
             throw new RuntimeException(e);
         }
     }

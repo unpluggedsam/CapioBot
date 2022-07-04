@@ -9,14 +9,14 @@ import java.util.*;
 
 public class DisplayGuildLeaderboardHourlyCommand implements Command {
 
-    private boolean isEnabled = false;
+    private boolean isEnabled;
 
     private final Command glc = new GuildLeaderboardCommand();
 
     @Override
-    public void execute(MessageReceivedEvent event, String[] args,  Map<Class<? extends Command>, Command> commandList) {
-        final Timer timer = new Timer();
-        TimerTask hourlyTask = new TimerTask() {
+    public void execute(final MessageReceivedEvent event, final String[] args, final Map<Class<? extends Command>, Command> commandList) {
+        Timer timer = new Timer();
+        final TimerTask hourlyTask = new TimerTask() {
             @Override
             public void run() {
                 if(isEnabled) {

@@ -14,9 +14,9 @@ public class GuildLeaderboardCommand implements Command {
 
     private final GuildLeaderboard guildLB = new GuildLeaderboard();
     @Override
-    public void execute(MessageReceivedEvent event, String[] args,  Map<Class<? extends Command>, Command> commandList) {
+    public void execute(final MessageReceivedEvent event, final String[] args, final Map<Class<? extends Command>, Command> commandList) {
 
-        EmbedBuilder eb = new EmbedBuilder();
+        final EmbedBuilder eb = new EmbedBuilder();
         eb.setTitle("Guild Leaderboard", null);
 
         guildLB.getGuildFromHTML(6, args[1]).forEach(guild -> {

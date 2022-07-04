@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class GuildKickCommand implements Command {
     @Override
-    public void execute(MessageReceivedEvent event, String[] args,  Map<Class<? extends Command>, Command> commandList) {
+    public void execute(final MessageReceivedEvent event, final String[] args, final Map<Class<? extends Command>, Command> commandList) {
 
     }
 

@@ -43,7 +43,7 @@ public interface IGuildLeveling {
      *
      * @see #EXP_NEEDED
      */
-    int MAX_EXP_NEEDED = EXP_NEEDED.get(EXP_NEEDED.size() - 1);
+    int MAX_EXP_NEEDED = IGuildLeveling.EXP_NEEDED.get(IGuildLeveling.EXP_NEEDED.size() - 1);
 
     /**
      * This method returns the full level of a guild with that amount of guild experience. This
@@ -60,7 +60,7 @@ public interface IGuildLeveling {
         }
 
         for (int level = 0; ; level++) {
-            double needed = getExpFromLevelToNext(level);
+            final double needed = IGuildLeveling.getExpFromLevelToNext(level);
             exp -= needed;
 
             if (exp < 0) {
@@ -79,8 +79,8 @@ public interface IGuildLeveling {
      * @param exp The total experience gathered by a guild; should be >= 0
      * @return Exact level of a guild with that much experience
      */
-    static double getExactLevel(double exp) {
-        return getLevel(exp) + getPercentageToNextLevel(exp);
+    static double getExactLevel(final double exp) {
+        return IGuildLeveling.getLevel(exp) + IGuildLeveling.getPercentageToNextLevel(exp);
     }
 
     /**
@@ -92,12 +92,12 @@ public interface IGuildLeveling {
      * @see #EXP_NEEDED
      * @see #MAX_EXP_NEEDED
      */
-    static double getExpFromLevelToNext(double level) {
+    static double getExpFromLevelToNext(final double level) {
         if (level < 0) {
             throw new IllegalArgumentException("Level value must be >= 0");
         }
 
-        return level >= EXP_NEEDED.size() ? MAX_EXP_NEEDED : EXP_NEEDED.get((int) level);
+        return level >= IGuildLeveling.EXP_NEEDED.size() ? IGuildLeveling.MAX_EXP_NEEDED : IGuildLeveling.EXP_NEEDED.get((int) level);
     }
 
     /**
@@ -110,9 +110,9 @@ public interface IGuildLeveling {
      *              0
      * @return The total experience needed to reach that precise level
      */
-    static double getTotalExpToLevel(double level) {
-        double progress = level - (int) level;
-        return getTotalExpToFullLevel(level) + (progress * getExpFromLevelToNext(level));
+    static double getTotalExpToLevel(final double level) {
+        final double progress = level - (int) level;
+        return IGuildLeveling.getTotalExpToFullLevel(level) + (progress * IGuildLeveling.getExpFromLevelToNext(level));
     }
 
     /**
@@ -124,11 +124,11 @@ public interface IGuildLeveling {
      * @param level The level reached with the returned amount of exp; should be an integer
      * @return The total amount of experience needed to reach that level
      */
-    static double getTotalExpToFullLevel(double level) {
+    static double getTotalExpToFullLevel(final double level) {
         double expNeeded = 0;
 
         for (int i = 0; i < (int) level; i++) {
-            expNeeded += getExpFromLevelToNext(i);
+            expNeeded += IGuildLeveling.getExpFromLevelToNext(i);
         }
 
         return expNeeded;
@@ -144,16 +144,16 @@ public interface IGuildLeveling {
      * @param exp The total experience gathered by a guild; should be >= 0
      * @return The guild's progress to the next level as a percentage between 0 and 1
      */
-    static double getPercentageToNextLevel(double exp) {
+    static double getPercentageToNextLevel(final double exp) {
         if (exp < 0) {
             throw new IllegalArgumentException("Experience value must be >= 0");
         }
 
-        double currentLvl = getLevel(exp);
+        final double currentLvl = IGuildLeveling.getLevel(exp);
         // Exp needed for the current whole level (excluding progress)
-        double totalExpForCurrentLvl = getTotalExpToFullLevel(currentLvl);
+        final double totalExpForCurrentLvl = IGuildLeveling.getTotalExpToFullLevel(currentLvl);
         // Exp diff between current whole level and next whole level
-        double expToNextLvl = getExpFromLevelToNext(currentLvl);
+        final double expToNextLvl = IGuildLeveling.getExpFromLevelToNext(currentLvl);
 
         return (exp - (totalExpForCurrentLvl)) / expToNextLvl;
     }

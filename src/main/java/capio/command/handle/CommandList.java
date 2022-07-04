@@ -15,34 +15,34 @@ import java.util.*;
  * to do to enable it is add it to the <code>commandList</code> {@link List}.
  */
 public class CommandList {
-    private Map<Class<? extends Command>, Command> commands = new HashMap();
+    private final Map<Class<? extends Command>, Command> commands = new HashMap();
 
     public CommandList() {
         try {
-            final ClassPathScanningCandidateComponentProvider provider = new ClassPathScanningCandidateComponentProvider(false);
+            ClassPathScanningCandidateComponentProvider provider = new ClassPathScanningCandidateComponentProvider(false);
             provider.addIncludeFilter(new AssignableTypeFilter(Command.class));
 
-            final Set<BeanDefinition> components = provider.findCandidateComponents("capio/command/bot_commands");
-            for (final BeanDefinition component : components) {
+            Set<BeanDefinition> components = provider.findCandidateComponents("capio/command/bot_commands");
+            for (BeanDefinition component : components) {
                 try {
 
-                    Command command = (Command) Class.forName(component.getBeanClassName()).getConstructor().newInstance();
+                    final Command command = (Command) Class.forName(component.getBeanClassName()).getConstructor().newInstance();
 
                     if (command.isEnabled()) {
                         commands.put(command.getClass(), command);
                     }
 
-                } catch (final IllegalArgumentException | SecurityException ignored) {
+                } catch (IllegalArgumentException | SecurityException ignored) {
 
-                } catch (ClassNotFoundException e) {
+                } catch (final ClassNotFoundException e) {
                     throw new RuntimeException(e);
-                } catch (InvocationTargetException e) {
+                } catch (final InvocationTargetException e) {
                     throw new RuntimeException(e);
-                } catch (InstantiationException e) {
+                } catch (final InstantiationException e) {
                     throw new RuntimeException(e);
-                } catch (IllegalAccessException e) {
+                } catch (final IllegalAccessException e) {
                     throw new RuntimeException(e);
-                } catch (NoSuchMethodException e) {
+                } catch (final NoSuchMethodException e) {
                     throw new RuntimeException(e);
                 }
             }

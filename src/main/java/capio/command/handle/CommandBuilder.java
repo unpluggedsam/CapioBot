@@ -19,9 +19,9 @@ public class CommandBuilder {
      * @return a {@link Command} with the name that the user enters or a
      * {@link NullCommand}.
      */
-    public static Command createCommand(String commandName, Map<Class<? extends Command>, Command> commandList) {
+    public static Command createCommand(final String commandName, final Map<Class<? extends Command>, Command> commandList) {
 
-        final Command[] command = new Command[1];
+        Command[] command = new Command[1];
 
         commandList.values().stream().filter(Command -> Command.getCommandName().equalsIgnoreCase(commandName)).findFirst().ifPresentOrElse(
                 (Command) -> command[0] = Command,

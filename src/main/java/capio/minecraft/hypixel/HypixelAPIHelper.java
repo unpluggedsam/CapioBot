@@ -9,28 +9,28 @@ import java.util.concurrent.ExecutionException;
 
 public class HypixelAPIHelper {
 
-    private final static HypixelAPI api = HypixelAPIKey.getHypixelAPIKey();
+    private static final HypixelAPI api = HypixelAPIKey.getHypixelAPIKey();
 
-    public static double getGuildLevel(String name)  {
+    public static double getGuildLevel(final String name)  {
         try {
-            return IGuildLeveling.getExactLevel(api.getGuildByName(name).get().getGuild().getExp());
-        }  catch (ExecutionException e) {
+            return IGuildLeveling.getExactLevel(HypixelAPIHelper.api.getGuildByName(name).get().getGuild().getExp());
+        }  catch (final ExecutionException e) {
             throw new RuntimeException(e);
-        } catch (InterruptedException e) {
+        } catch (final InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public static Player createPlayerFromUsername(String name) {
+    public static Player createPlayerFromUsername(final String name) {
         try {
-            JsonObject jsonPlayerObject = api.getPlayerByUuid(name).get().getPlayer();
+            final JsonObject jsonPlayerObject = HypixelAPIHelper.api.getPlayerByUuid(name).get().getPlayer();
 
             // set player fields by the json object
 
             return null;
-        } catch (InterruptedException e) {
+        } catch (final InterruptedException e) {
             throw new RuntimeException(e);
-        } catch (ExecutionException e) {
+        } catch (final ExecutionException e) {
             throw new RuntimeException(e);
         }
     }

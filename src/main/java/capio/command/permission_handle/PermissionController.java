@@ -17,4 +17,5 @@ public interface PermissionController {
      * @return A {@link List} of {@link Role}'s that are needed to acess the {@link Command}.
      */
     List<Role> getRequiredRoles(MessageReceivedEvent event);
+
 }

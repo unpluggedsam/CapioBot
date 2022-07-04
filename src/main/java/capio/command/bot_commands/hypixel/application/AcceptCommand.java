@@ -10,8 +10,8 @@ import java.util.Map;
 
 public class AcceptCommand implements Command {
     @Override
-    public void execute(MessageReceivedEvent event, String[] args,  Map<Class<? extends Command>, Command> commandList) {
-        Command command = commandList.get(GuildInviteCommand.class);
+    public void execute(final MessageReceivedEvent event, final String[] args, final Map<Class<? extends Command>, Command> commandList) {
+        final Command command = commandList.get(GuildInviteCommand.class);
         command.execute(event, args, commandList);
     }
 

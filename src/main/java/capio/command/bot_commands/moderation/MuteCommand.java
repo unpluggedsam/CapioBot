@@ -15,12 +15,12 @@ import java.util.Map;
 
 public class MuteCommand implements Command {
     @Override
-    public void execute(MessageReceivedEvent event, String[] args,  Map<Class<? extends Command>, Command> commandList) {
+    public void execute(final MessageReceivedEvent event, final String[] args, final Map<Class<? extends Command>, Command> commandList) {
 
-        Member member = event.getMessage().getMentions().getMembers().get(0);
+        final Member member = event.getMessage().getMentions().getMembers().get(0);
 
         // mute role
-        Role role = RoleFactory.createRole(event.getGuild(), 988245680453738546L, "Mute");
+        final Role role = RoleFactory.createRole(event.getGuild(), 988245680453738546L, "Mute");
 
         if (member.hasPermission(Permission.ADMINISTRATOR)) {
             event.getGuildChannel().sendMessage("Can't mute an Administrator!").queue();

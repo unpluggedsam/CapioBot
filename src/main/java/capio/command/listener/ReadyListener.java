@@ -8,9 +8,7 @@ import javax.annotation.Nonnull;
 public class ReadyListener extends ListenerAdapter {
 
     @Override
-    public void onReady(@Nonnull ReadyEvent event) {
-
-
+    public void onReady(@Nonnull final ReadyEvent event) {
 
     }
 }
