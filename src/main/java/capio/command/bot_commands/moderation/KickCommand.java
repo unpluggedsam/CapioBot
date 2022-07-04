@@ -18,7 +18,7 @@ public class KickCommand implements Command {
     public void execute(final MessageReceivedEvent event, final String[] args, final GuildCommandsHandler guildCommandsHandler) {
         final Member member = event.getMessage().getMentions().getMembers().get(0);
         if (member.hasPermission(Permission.ADMINISTRATOR)) {
-            event.getGuildChannel().sendMessage("Can't kick an Administrator!").queue();
+            event.getGuildChannel().sendMessage("Can't kick an ADMIN!").queue();
         } else {
             event.getGuild().kick(member).complete();
         }
@@ -41,6 +41,6 @@ public class KickCommand implements Command {
 
     @Override
     public List<PermissionEnum> getPermissionEnum() {
-        return List.of(PermissionEnum.Administrator);
+        return List.of(PermissionEnum.ADMIN);
     }
 }

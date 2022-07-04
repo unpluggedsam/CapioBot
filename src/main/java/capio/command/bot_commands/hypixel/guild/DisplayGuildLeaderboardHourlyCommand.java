@@ -48,7 +48,7 @@ public class DisplayGuildLeaderboardHourlyCommand implements Command {
 
     @Override
     public List<PermissionEnum> getPermissionEnum() {
-        return List.of(PermissionEnum.Administrator);
+        return List.of(PermissionEnum.ADMIN);
     }
 
     @Override

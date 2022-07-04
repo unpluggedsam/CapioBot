@@ -26,11 +26,11 @@ public class GuildCommandsHandler {
     public static void addGuildToPermissionController(Guild guild) {
 
         Map<PermissionEnum, PermissionController> permissionEnumToController = new HashMap<>();
-        permissionEnumToController.put(PermissionEnum.Basic, new BasicPermission());
-        permissionEnumToController.put(PermissionEnum.Moderator, new ModeratorPermission());
+        permissionEnumToController.put(PermissionEnum.BASIC, new BasicPermission());
+        permissionEnumToController.put(PermissionEnum.MODERATOR, new ModeratorPermission());
         AdminPermission adminPermission = new AdminPermission();
         adminPermission.addRequiredRole(guild.getRolesByName("admin", true).get(0));
-        permissionEnumToController.put(PermissionEnum.Administrator, adminPermission);
+        permissionEnumToController.put(PermissionEnum.ADMIN, adminPermission);
 
         guildPermissionController.put(guild, permissionEnumToController);
     }

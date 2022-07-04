@@ -36,7 +36,7 @@ public interface Command {
      * Users access to it.
      */
     default List<PermissionEnum> getPermissionEnum() {
-        return List.of(PermissionEnum.Basic);
+        return List.of(PermissionEnum.BASIC);
     }
 
     /**

@@ -35,7 +35,7 @@ public class DeleteCommand implements Command {
 
     @Override
     public List<PermissionEnum> getPermissionEnum() {
-        return List.of(PermissionEnum.Administrator, PermissionEnum.Moderator);
+        return List.of(PermissionEnum.ADMIN, PermissionEnum.MODERATOR);
     }
 
     @Override

@@ -14,7 +14,7 @@ public class BanCommand implements Command {
     public void execute(final MessageReceivedEvent event, final String[] args, final GuildCommandsHandler guildCommandsHandler) {
         final Member member = event.getMessage().getMentions().getMembers().get(0);
         if (member.hasPermission(Permission.ADMINISTRATOR)) {
-            event.getGuildChannel().sendMessage("Can't ban an Administrator!").queue();
+            event.getGuildChannel().sendMessage("Can't ban an ADMIN!").queue();
         } else {
             event.getGuild().ban(member, 0, args[2]).complete();
         }
@@ -37,6 +37,6 @@ public class BanCommand implements Command {
 
     @Override
     public List<PermissionEnum> getPermissionEnum() {
-        return List.of(PermissionEnum.Administrator);
+        return List.of(PermissionEnum.ADMIN);
     }
 }

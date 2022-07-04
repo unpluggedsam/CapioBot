@@ -21,7 +21,7 @@ public class MuteCommand implements Command {
         final Role role = RoleFactory.createRole(event.getGuild(), 988245680453738546L, "Mute");
 
         if (member.hasPermission(Permission.ADMINISTRATOR)) {
-            event.getGuildChannel().sendMessage("Can't mute an Administrator!").queue();
+            event.getGuildChannel().sendMessage("Can't mute an ADMIN!").queue();
         } else {
             if(args.length == 3) {
                 event.getGuild().addRoleToMember(member, role).queue();
@@ -65,6 +65,6 @@ public class MuteCommand implements Command {
 
     @Override
     public List<PermissionEnum> getPermissionEnum() {
-        return List.of(PermissionEnum.Administrator, PermissionEnum.Moderator);
+        return List.of(PermissionEnum.ADMIN, PermissionEnum.MODERATOR);
     }
 }
