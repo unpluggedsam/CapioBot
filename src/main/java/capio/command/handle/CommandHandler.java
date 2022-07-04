@@ -17,19 +17,20 @@ public class CommandHandler {
     /**
      * Executes the command
      *
-     * @param command The Command that is being executed.
-     * @param event   The message event.
+     * @param command              The Command that is being executed.
+     * @param event                The message event.
+     * @param guildCommandsHandler
      */
-    public void executeCommand(final Command command, final MessageReceivedEvent event, final String[] args, GuildCommandsHandler guildCommandHandler) {
+    public void executeCommand(final Command command, final MessageReceivedEvent event, final String[] args, GuildCommandsHandler guildCommandsHandler) {
         try {
             List<Role> requiredRoles = new ArrayList();
 
             command.getPermissionEnum().forEach(permissionEnum -> {
-                guildCommandHandler.getPermissionControllerFromEnum(event.getGuild(), permissionEnum).getRequiredRoles().forEach(role -> requiredRoles.add(role));
+                GuildCommandsHandler.getPermissionControllerFromEnum(event.getGuild(), permissionEnum).getRequiredRoles().forEach(role -> requiredRoles.add(role));
             });
 
             if (!Collections.disjoint(Objects.requireNonNull(event.getMember()).getRoles(), requiredRoles)) {
-                final Thread commandThread = new Thread(() -> command.execute(event, args, guildCommandHandler));
+                final Thread commandThread = new Thread(() -> command.execute(event, args, guildCommandsHandler));
                 commandThread.setUncaughtExceptionHandler((th, ex) -> {
                     ex.printStackTrace();
                     event.getGuildChannel().sendMessage("Not enough arguments!").queue();
