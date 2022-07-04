@@ -19,9 +19,9 @@ public interface Command {
      * The functionality that the command should execute when the User calls it.
      *
      * @param event       The event triggered by the User sending a message.
-     * @param commandList
+     * @param guildCommandsHandler
      */
-    void execute(MessageReceivedEvent event, String[] args, GuildCommandsHandler commandList);
+    void execute(MessageReceivedEvent event, String[] args, GuildCommandsHandler guildCommandsHandler);
 
     /**
      * @return The command name (the text needed to trigger the command).

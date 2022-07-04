@@ -7,8 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ModeratorPermission implements PermissionController {
+    private final ArrayList requiredRoles = new ArrayList<>();
     @Override
-    public List<Role> getRequiredRoles(final MessageReceivedEvent event) {
-        return List.of(RoleFactory.createRole(event.getGuild(), 988961939965243423L, "Moderator"));
+    public ArrayList<Role> getRequiredRoles(final MessageReceivedEvent event) {
+        return requiredRoles;
     }
 }

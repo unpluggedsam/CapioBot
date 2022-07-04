@@ -9,6 +9,10 @@ import java.util.Map;
 public class GuildCommandsHandler {
     private final Map<Guild, CommandList> guildCommandList = new HashMap();
 
+    public Map<PermissionEnum, PermissionController> getGuildPermissionController(Guild guild) {
+        return guildPermissionController.get(guild);
+    }
+
     private final Map<Guild, Map<PermissionEnum, PermissionController>> guildPermissionController = new HashMap();
 
     public void addGuildToCommandList(final Guild guild) {
@@ -28,6 +32,7 @@ public class GuildCommandsHandler {
 
         guildPermissionController.put(guild, permissionEnumToController);
     }
+
 
     public PermissionController getPermissionControllerFromEnum(Guild guild, PermissionEnum permissionEnum) {
         return guildPermissionController.get(guild).get(permissionEnum);
