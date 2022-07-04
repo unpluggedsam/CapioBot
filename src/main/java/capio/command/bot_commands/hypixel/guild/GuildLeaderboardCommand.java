@@ -1,20 +1,20 @@
 package capio.command.bot_commands.hypixel.guild;
 
 import capio.command.bot_commands.Command;
-import capio.minecraft.hypixel.guild_statistics.Guild;
 import capio.minecraft.hypixel.guild_statistics.GuildLeaderboard;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
-import net.hypixel.api.HypixelAPI;
 
 import java.awt.*;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class GuildLeaderboardCommand implements Command {
 
     private final GuildLeaderboard guildLB = new GuildLeaderboard();
     @Override
-    public void execute(MessageReceivedEvent event, String[] args) {
+    public void execute(MessageReceivedEvent event, String[] args,  Map<Class<? extends Command>, Command> commandList) {
 
         EmbedBuilder eb = new EmbedBuilder();
         eb.setTitle("Guild Leaderboard", null);

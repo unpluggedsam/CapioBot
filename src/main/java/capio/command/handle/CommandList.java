@@ -15,18 +15,9 @@ import java.util.*;
  * to do to enable it is add it to the <code>commandList</code> {@link List}.
  */
 public class CommandList {
+    private Map<Class<? extends Command>, Command> commands = new HashMap();
 
-    private CommandList() {
-
-    }
-
-
-
-    /**
-     * @return A {@link List} of all the {@link Command}'s.
-     */
-    public static Map<Class<? extends Command>, Command> getCommandList() {
-        Map commands = new HashMap<Class<? extends Command>, Command>();
+    public CommandList() {
         try {
             final ClassPathScanningCandidateComponentProvider provider = new ClassPathScanningCandidateComponentProvider(false);
             provider.addIncludeFilter(new AssignableTypeFilter(Command.class));
@@ -55,9 +46,15 @@ public class CommandList {
                     throw new RuntimeException(e);
                 }
             }
-            return Collections.unmodifiableMap(commands);
-        } catch (RuntimeException e) {
-            throw new RuntimeException(e);
+        } finally {
+
         }
     }
+
+        /**
+         * @return A {@link List} of all the {@link Command}'s.
+         */
+        public Map<Class<? extends Command>, Command> getCommandList() {
+            return commands;
+        }
     }

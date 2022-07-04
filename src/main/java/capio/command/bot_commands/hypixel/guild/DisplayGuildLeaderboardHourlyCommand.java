@@ -5,9 +5,7 @@ import capio.command.permission_handle.AdminPermission;
 import capio.command.permission_handle.PermissionController;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 public class DisplayGuildLeaderboardHourlyCommand implements Command {
 
@@ -16,13 +14,13 @@ public class DisplayGuildLeaderboardHourlyCommand implements Command {
     private final Command glc = new GuildLeaderboardCommand();
 
     @Override
-    public void execute(MessageReceivedEvent event, String[] args) {
+    public void execute(MessageReceivedEvent event, String[] args,  Map<Class<? extends Command>, Command> commandList) {
         final Timer timer = new Timer();
         TimerTask hourlyTask = new TimerTask() {
             @Override
             public void run() {
                 if(isEnabled) {
-                    glc.execute(event, args);
+                    glc.execute(event, args, commandList);
                 } else {
                     timer.cancel();
                 }

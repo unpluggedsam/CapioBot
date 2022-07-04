@@ -3,9 +3,12 @@ package capio.command.bot_commands.misc;
 import capio.command.bot_commands.Command;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class PingPong implements Command {
     @Override
-    public void execute(MessageReceivedEvent event, String[] args) {
+    public void execute(MessageReceivedEvent event, String[] args,  Map<Class<? extends Command>, Command> commandList) {
         event.getGuildChannel().sendMessage("Pong!").queue();
     }
 

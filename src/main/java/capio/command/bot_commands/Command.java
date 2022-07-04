@@ -7,6 +7,7 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Used to show that a class is a command. The execute() method is called
@@ -14,11 +15,14 @@ import java.util.List;
  */
 public interface Command {
 
+
     /**
      * The functionality that the command should execute when the User calls it.
-     * @param event The event triggered by the User sending a message.
+     *
+     * @param event       The event triggered by the User sending a message.
+     * @param commandList
      */
-    void execute(MessageReceivedEvent event, String[] args);
+    void execute(MessageReceivedEvent event, String[] args, Map<Class<? extends Command>, Command> commandList);
 
     /**
      * @return The command name (the text needed to trigger the command).

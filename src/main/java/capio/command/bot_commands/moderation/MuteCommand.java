@@ -9,11 +9,13 @@ import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MuteCommand implements Command {
     @Override
-    public void execute(MessageReceivedEvent event, String[] args) {
+    public void execute(MessageReceivedEvent event, String[] args,  Map<Class<? extends Command>, Command> commandList) {
 
         Member member = event.getMessage().getMentions().getMembers().get(0);
 

@@ -5,11 +5,14 @@ import capio.command.bot_commands.in_game_commands.guild_managment.GuildInviteCo
 import capio.command.handle.CommandList;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class AcceptCommand implements Command {
     @Override
-    public void execute(MessageReceivedEvent event, String[] args) {
-        Command command = CommandList.getCommandList().get(GuildInviteCommand.class);
-        command.execute(event, args);
+    public void execute(MessageReceivedEvent event, String[] args,  Map<Class<? extends Command>, Command> commandList) {
+        Command command = commandList.get(GuildInviteCommand.class);
+        command.execute(event, args, commandList);
     }
 
     @Override

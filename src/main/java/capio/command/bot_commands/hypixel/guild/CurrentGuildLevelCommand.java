@@ -5,9 +5,12 @@ import capio.command.bot_commands.Command;
 import capio.minecraft.hypixel.HypixelAPIHelper;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class CurrentGuildLevelCommand implements Command {
     @Override
-    public void execute(MessageReceivedEvent event, String[] args) {
+    public void execute(MessageReceivedEvent event, String[] args,  Map<Class<? extends Command>, Command> commandList) {
         try {
             event.getGuildChannel().sendMessage(String.format("The current guild level of %s is %s", args[1], HypixelAPIHelper.getGuildLevel(args[1]))).queue();
         } catch(NullPointerException e) {

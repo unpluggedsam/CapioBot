@@ -2,17 +2,18 @@ package capio.command.bot_commands.moderation;
 
 import capio.command.bot_commands.Command;
 import capio.command.permission_handle.AdminPermission;
-import capio.command.permission_handle.BasicPermission;
 import capio.command.permission_handle.PermissionController;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class BanCommand implements Command {
     @Override
-    public void execute(MessageReceivedEvent event, String[] args) {
+    public void execute(MessageReceivedEvent event, String[] args,  Map<Class<? extends Command>, Command> commandList) {
         Member member = event.getMessage().getMentions().getMembers().get(0);
         if (member.hasPermission(Permission.ADMINISTRATOR)) {
             event.getGuildChannel().sendMessage("Can't ban an Administrator!").queue();

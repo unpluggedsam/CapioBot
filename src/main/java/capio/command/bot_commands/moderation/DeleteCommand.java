@@ -6,7 +6,9 @@ import capio.command.permission_handle.PermissionController;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Deletes a certain amount of messages
@@ -14,7 +16,7 @@ import java.util.List;
 public class DeleteCommand implements Command {
 
     @Override
-    public void execute(MessageReceivedEvent event, String[] args) {
+    public void execute(MessageReceivedEvent event, String[] args,  Map<Class<? extends Command>, Command> commandList) {
         try {
             event.getGuildChannel().sendMessage(String.format("Attempting to delete %s messsages", args[1])).queue();
             Thread.sleep(200);
