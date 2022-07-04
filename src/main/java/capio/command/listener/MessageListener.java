@@ -22,7 +22,7 @@ public class MessageListener extends ListenerAdapter {
             final Optional<CommandList> commandList = Optional.ofNullable(guildCommandHandler.getGuildCommandList(guild));
             commandList.ifPresentOrElse((localCommandList) -> {
                 final String[] args = event.getMessage().getContentRaw().split("\\s+");
-                handler.executeCommand(CommandBuilder.createCommand(args[0].substring(1), commandList.get().getCommandList()), event, args, commandList.get().getCommandList());
+                handler.executeCommand(CommandBuilder.createCommand(args[0].substring(1), commandList.get().getCommandList()), event, args, guildCommandHandler);
             }, () -> {
                 guildCommandHandler.addGuild(guild);
             });

@@ -19,10 +19,10 @@ public class CommandHandler {
      * @param event       The message event.
      * @param commandList
      */
-    public void executeCommand(final Command command, final MessageReceivedEvent event, final String[] args, final Map<Class<? extends Command>, Command> commandList) {
+    public void executeCommand(final Command command, final MessageReceivedEvent event, final String[] args, GuildCommandsHandler guildCommandHandler) {
         try {
             if(!Collections.disjoint(Objects.requireNonNull(event.getMember()).getRoles(), command.getRequiredRoles(event))) {
-                final Thread commandThread = new Thread(() ->  command.execute(event, args, commandList));
+                final Thread commandThread = new Thread(() ->  command.execute(event, args, guildCommandHandler.getGuildCommandList(event.getGuild()).getCommandList()));
                 commandThread.setUncaughtExceptionHandler((th, ex) -> {
                     ex.printStackTrace();
                     event.getGuildChannel().sendMessage("Not enough arguments!").queue();
