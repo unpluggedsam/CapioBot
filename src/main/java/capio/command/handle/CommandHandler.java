@@ -25,7 +25,7 @@ public class CommandHandler {
             List<Role> requiredRoles = new ArrayList();
 
             command.getPermissionEnum().forEach(permissionEnum -> {
-                guildCommandHandler.getPermissionControllerFromEnum(event.getGuild(), permissionEnum).getRequiredRoles(event).forEach(role -> requiredRoles.add(role));
+                guildCommandHandler.getPermissionControllerFromEnum(event.getGuild(), permissionEnum).getRequiredRoles().forEach(role -> requiredRoles.add(role));
             });
 
             if (!Collections.disjoint(Objects.requireNonNull(event.getMember()).getRoles(), requiredRoles)) {

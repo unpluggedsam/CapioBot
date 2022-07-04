@@ -28,7 +28,9 @@ public class GuildCommandsHandler {
         Map<PermissionEnum, PermissionController> permissionEnumToController = new HashMap<>();
         permissionEnumToController.put(PermissionEnum.Basic, new BasicPermission());
         permissionEnumToController.put(PermissionEnum.Moderator, new ModeratorPermission());
-        permissionEnumToController.put(PermissionEnum.Administrator, new AdminPermission());
+        AdminPermission adminPermission = new AdminPermission();
+        adminPermission.addRequiredRole(guild.getRolesByName("admin", true).get(0));
+        permissionEnumToController.put(PermissionEnum.Administrator, adminPermission);
 
         guildPermissionController.put(guild, permissionEnumToController);
     }

@@ -11,7 +11,7 @@ import java.util.List;
 public class SetRequiredPermissionCommand implements Command {
     @Override
     public void execute(MessageReceivedEvent event, String[] args, GuildCommandsHandler guildCommandsHandler) {
-        guildCommandsHandler.getGuildPermissionController(event.getGuild()).get(PermissionEnum.valueOf(args[1])).addRequiredRole(event, event.getMessage().getMentions().getRoles().get(0));
+        guildCommandsHandler.getGuildPermissionController(event.getGuild()).get(PermissionEnum.valueOf(args[1])).addRequiredRole(event.getMessage().getMentions().getRoles().get(0));
     }
 
     @Override

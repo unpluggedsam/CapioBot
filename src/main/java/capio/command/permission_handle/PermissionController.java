@@ -15,16 +15,15 @@ public interface PermissionController {
      * If the User has a {@link Role} that is present in the returned {@link List} of {@link Role}'s
      * then they have acess to the {@link Command}..
      *
-     * @param event The message event.
      * @return A {@link List} of {@link Role}'s that are needed to acess the {@link Command}.
      */
-    ArrayList<Role> getRequiredRoles(MessageReceivedEvent event);
+    ArrayList<Role> getRequiredRoles();
 
-    default void addRequiredRole(MessageReceivedEvent event, Role role) {
-        getRequiredRoles(event).add(role);
+    default void addRequiredRole(Role role) {
+        getRequiredRoles().add(role);
     }
 
-    default void removeRequiredRole(MessageReceivedEvent event, Role role) {
-        getRequiredRoles(event).remove(role);
+    default void removeRequiredRole(Role role) {
+        getRequiredRoles().remove(role);
     }
 }

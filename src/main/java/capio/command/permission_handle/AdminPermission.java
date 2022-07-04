@@ -13,7 +13,7 @@ import java.util.List;
 public class AdminPermission implements PermissionController {
     private final ArrayList requiredRoles = new ArrayList<>();
     @Override
-    public ArrayList<Role> getRequiredRoles(final MessageReceivedEvent event) {
+    public ArrayList<Role> getRequiredRoles() {
         return requiredRoles;
     }
 }
