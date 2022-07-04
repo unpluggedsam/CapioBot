@@ -16,7 +16,6 @@ public class BasicPermission implements PermissionController {
 
     @Override
     public ArrayList<Role> getRequiredRoles(final MessageReceivedEvent event) {
-        requiredRoles.add(RoleFactory.createRole(event.getGuild(), 988161656787984504L, "ALL"));
         return requiredRoles;
     }
 }
