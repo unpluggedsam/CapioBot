@@ -6,6 +6,7 @@ import capio.command.permission_handle.PermissionEnum;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class SetRequiredPermissionCommand implements Command {
     @Override
@@ -26,5 +27,10 @@ public class SetRequiredPermissionCommand implements Command {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    @Override
+    public List<PermissionEnum> getPermissionEnum() {
+        return List.of(PermissionEnum.Administrator);
     }
 }
