@@ -1,11 +1,10 @@
 package capio.command.handle;
 
 import capio.command.bot_commands.Command;
+import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
-import java.util.Collections;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * Delegates and executes {@link Command}'s.
@@ -20,7 +19,13 @@ public class CommandHandler {
      */
     public void executeCommand(final Command command, final MessageReceivedEvent event, final String[] args, GuildCommandsHandler guildCommandHandler) {
         try {
-            if(!Collections.disjoint(Objects.requireNonNull(event.getMember()).getRoles(), command.getRequiredRoles(event))) {
+            List<Role> requiredRoles = new ArrayList();
+            
+            command.getPermissionEnum().forEach(permissionEnum -> {
+                guildCommandHandler.getPermissionControllerFromEnum(event.getGuild(), permissionEnum).getRequiredRoles(event).forEach(role -> requiredRoles.add(role));
+            });
+
+            if(!Collections.disjoint(Objects.requireNonNull(event.getMember()).getRoles(), requiredRoles)) {
                 final Thread commandThread = new Thread(() ->  command.execute(event, args, guildCommandHandler.getGuildCommandList(event.getGuild()).getCommandList()));
                 commandThread.setUncaughtExceptionHandler((th, ex) -> {
                     ex.printStackTrace();

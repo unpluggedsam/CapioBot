@@ -2,7 +2,7 @@ package capio.command.bot_commands.moderation;
 
 import capio.command.bot_commands.Command;
 import capio.command.permission_handle.AdminPermission;
-import capio.command.permission_handle.PermissionController;
+import capio.command.permission_handle.PermissionEnum;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -37,7 +37,7 @@ public class BanCommand implements Command {
     }
 
     @Override
-    public List<PermissionController> getPermissionController() {
+    public List<PermissionEnum> getPermissionEnum() {
         return List.of(new AdminPermission());
     }
 }
