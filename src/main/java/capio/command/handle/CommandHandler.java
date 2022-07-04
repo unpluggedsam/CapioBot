@@ -17,7 +17,6 @@ public class CommandHandler {
      *
      * @param command     The Command that is being executed.
      * @param event       The message event.
-     * @param commandList
      */
     public void executeCommand(final Command command, final MessageReceivedEvent event, final String[] args, GuildCommandsHandler guildCommandHandler) {
         try {
