@@ -24,7 +24,7 @@ public class MessageListener extends ListenerAdapter {
                 final String[] args = event.getMessage().getContentRaw().split("\\s+");
                 handler.executeCommand(CommandBuilder.createCommand(args[0].substring(1), commandList.get().getCommandList()), event, args, guildCommandHandler);
             }, () -> {
-                guildCommandHandler.addGuild(guild);
+                guildCommandHandler.addGuildToCommandList(guild);
             });
         }
     }
