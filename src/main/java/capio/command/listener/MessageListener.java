@@ -16,12 +16,12 @@ public class MessageListener extends ListenerAdapter {
     private final GuildCommandsHandler guildCommandHandler = new GuildCommandsHandler();
 
     @Override
-    public void onMessageReceived(MessageReceivedEvent event) {
+    public void onMessageReceived(final MessageReceivedEvent event) {
         if (event.getMessage().getContentRaw().startsWith(CapioBot.prefix)) {
-            Guild guild = event.getGuild();
-            Optional<CommandList> commandList = Optional.ofNullable(guildCommandHandler.getGuildCommandList(guild));
+            final Guild guild = event.getGuild();
+            final Optional<CommandList> commandList = Optional.ofNullable(guildCommandHandler.getGuildCommandList(guild));
             commandList.ifPresentOrElse((localCommandList) -> {
-                String[] args = event.getMessage().getContentRaw().split("\\s+");
+                final String[] args = event.getMessage().getContentRaw().split("\\s+");
                 handler.executeCommand(CommandBuilder.createCommand(args[0].substring(1), commandList.get().getCommandList()), event, args, commandList.get().getCommandList());
             }, () -> {
                 guildCommandHandler.addGuild(guild);

@@ -14,7 +14,7 @@ public class HypixelAPIKey {
     }
 
     public static HypixelAPI getHypixelAPIKey() {
-        if(api == null) api = new HypixelAPI(UUID.fromString(ConfigReader.getHypixelAPIKey()));
-        return api;
+        if(HypixelAPIKey.api == null) HypixelAPIKey.api = new HypixelAPI(UUID.fromString(ConfigReader.getHypixelAPIKey()));
+        return HypixelAPIKey.api;
     }
 }

@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class AdminPermission implements PermissionController {
     @Override
-    public List getRequiredRoles(MessageReceivedEvent event) {
+    public List getRequiredRoles(final MessageReceivedEvent event) {
       return List.of(RoleFactory.createRole(event.getGuild(), 988155607586599012L, "Admin"));
     }
 }

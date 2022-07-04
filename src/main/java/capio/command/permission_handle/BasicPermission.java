@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class BasicPermission implements PermissionController {
     @Override
-    public List<Role> getRequiredRoles(MessageReceivedEvent event) {
+    public List<Role> getRequiredRoles(final MessageReceivedEvent event) {
         return List.of(RoleFactory.createRole(event.getGuild(), 988161656787984504L, "All"));
     }
 }

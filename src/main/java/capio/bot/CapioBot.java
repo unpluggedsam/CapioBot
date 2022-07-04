@@ -16,8 +16,8 @@ public class CapioBot {
     public static final String prefix = "^";
 
 
-    public static void main(String[] args) throws LoginException {
-        JDA bot = JDABuilder.createDefault(ConfigReader.getDiscordToken())
+    public static void main(final String[] args) throws LoginException {
+        final JDA bot = JDABuilder.createDefault(ConfigReader.getDiscordToken())
                 .setActivity(Activity.listening("Serving the loldirt guild"))
                 .enableIntents(GatewayIntent.GUILD_MEMBERS)
                         .build();

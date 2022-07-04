@@ -15,7 +15,7 @@ public class Guild {
         return position;
     }
 
-    public void setPosition(int position) {
+    public void setPosition(final int position) {
         this.position = position;
     }
 
@@ -24,7 +24,7 @@ public class Guild {
         return exp;
     }
 
-    public void setExp(String exp) {
+    public void setExp(final String exp) {
         this.exp = exp;
     }
 
@@ -32,7 +32,7 @@ public class Guild {
         return level;
     }
 
-    public void setLevel(double level) {
+    public void setLevel(final double level) {
         this.level = level;
     }
 
@@ -40,7 +40,7 @@ public class Guild {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 

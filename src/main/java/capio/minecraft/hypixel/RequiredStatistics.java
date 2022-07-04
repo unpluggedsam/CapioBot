@@ -4,7 +4,7 @@ import capio.minecraft.users.Player;
 
 public class RequiredStatistics {
 
-    public boolean doesUserMeetRequirements(Player player) {
+    public boolean doesUserMeetRequirements(final Player player) {
         return false;
     }
 }

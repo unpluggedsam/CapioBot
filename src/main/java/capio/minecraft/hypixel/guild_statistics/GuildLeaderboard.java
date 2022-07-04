@@ -18,7 +18,7 @@ public class GuildLeaderboard {
     public GuildLeaderboard() {
         try {
             doc = Jsoup.connect("https://sk1er.club/leaderboards/newdata/GUILD_LEVEL").get();
-        } catch (IOException e) {
+        } catch (final IOException e) {
             throw new RuntimeException(e);
         }
     }
@@ -29,15 +29,15 @@ public class GuildLeaderboard {
      * @param guildName The name of the guild that the User is trying to access.
      * @return
      */
-    public List<Guild> getGuildFromHTML(int amount, String guildName) {
+    public List<Guild> getGuildFromHTML(final int amount, final String guildName) {
 
-        ArrayList<Guild> guildList = new ArrayList<Guild>();
+        final ArrayList<Guild> guildList = new ArrayList<Guild>();
 
-        Elements tbody =  doc.select("tbody");
-        Elements tr = tbody.select("tr");
+        final Elements tbody =  doc.select("tbody");
+        final Elements tr = tbody.select("tr");
 
         tr.forEach(td -> {
-            Guild guild = new Guild();
+            final Guild guild = new Guild();
             guild.setPosition(Integer.parseInt(td.child(0).text()));
             guild.setName(td.child(2).text());
             guild.setLevel(Double.parseDouble(td.child(3).text()));
@@ -46,20 +46,20 @@ public class GuildLeaderboard {
             guildList.add(guild);
         });
 
-        int index = IntStream.range(0, guildList.size())
+        final int index = IntStream.range(0, guildList.size())
                 .filter(i -> guildList.get(i).getName().equalsIgnoreCase(guildName))
                 .findFirst()
                 .orElse(-1);
 
         try {
             return guildList.subList(index - amount / 2, index + amount / 2);
-        } catch(IndexOutOfBoundsException e) {
+        } catch(final IndexOutOfBoundsException e) {
             try {
                 return guildList.subList((index + 1) * -1, amount);
-            } catch(IndexOutOfBoundsException e1) {
+            } catch(final IndexOutOfBoundsException e1) {
                 try {
                     return guildList.subList(index + 1, amount);
-                } catch(IndexOutOfBoundsException e2) {
+                } catch(final IndexOutOfBoundsException e2) {
                     e2.printStackTrace();
                 }
             }
