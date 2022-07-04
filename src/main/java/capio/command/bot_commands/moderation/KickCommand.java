@@ -42,6 +42,6 @@ public class KickCommand implements Command {
 
     @Override
     public List<PermissionEnum> getPermissionEnum() {
-        return List.of(new AdminPermission());
+        return List.of(PermissionEnum.Administrator);
     }
 }
