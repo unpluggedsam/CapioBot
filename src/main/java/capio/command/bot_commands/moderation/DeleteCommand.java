@@ -1,13 +1,12 @@
 package capio.command.bot_commands.moderation;
 
 import capio.command.bot_commands.Command;
-import capio.command.permission_handle.AdminPermission;
+import capio.command.handle.GuildCommandsHandler;
 import capio.command.permission_handle.PermissionEnum;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Deletes a certain amount of messages
@@ -15,7 +14,7 @@ import java.util.Map;
 public class DeleteCommand implements Command {
 
     @Override
-    public void execute(final MessageReceivedEvent event, final String[] args, final Map<Class<? extends Command>, Command> commandList) {
+    public void execute(final MessageReceivedEvent event, final String[] args, final GuildCommandsHandler guildCommandsHandler) {
         try {
             event.getGuildChannel().sendMessage(String.format("Attempting to delete %s messsages", args[1])).queue();
             Thread.sleep(200);

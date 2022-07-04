@@ -1,12 +1,12 @@
 package capio.command.bot_commands;
 
+import capio.command.handle.GuildCommandsHandler;
 import capio.command.permission_handle.BasicPermission;
 import capio.command.permission_handle.PermissionController;
 import capio.command.permission_handle.PermissionEnum;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Used to show that a class is a command. The execute() method is called
@@ -21,7 +21,7 @@ public interface Command {
      * @param event       The event triggered by the User sending a message.
      * @param commandList
      */
-    void execute(MessageReceivedEvent event, String[] args, Map<Class<? extends Command>, Command> commandList);
+    void execute(MessageReceivedEvent event, String[] args, GuildCommandsHandler commandList);
 
     /**
      * @return The command name (the text needed to trigger the command).

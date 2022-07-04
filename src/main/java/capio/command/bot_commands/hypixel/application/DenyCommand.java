@@ -1,13 +1,12 @@
 package capio.command.bot_commands.hypixel.application;
 
 import capio.command.bot_commands.Command;
+import capio.command.handle.GuildCommandsHandler;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
-
-import java.util.Map;
 
 public class DenyCommand implements Command {
     @Override
-    public void execute(final MessageReceivedEvent event, final String[] args, final Map<Class<? extends Command>, Command> commandList) {
+    public void execute(final MessageReceivedEvent event, final String[] args, final GuildCommandsHandler guildCommandsHandler) {
 
     }
 

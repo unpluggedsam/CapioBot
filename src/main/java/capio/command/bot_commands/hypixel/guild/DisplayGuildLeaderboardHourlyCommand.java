@@ -1,7 +1,7 @@
 package capio.command.bot_commands.hypixel.guild;
 
 import capio.command.bot_commands.Command;
-import capio.command.permission_handle.AdminPermission;
+import capio.command.handle.GuildCommandsHandler;
 import capio.command.permission_handle.PermissionEnum;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
@@ -14,13 +14,13 @@ public class DisplayGuildLeaderboardHourlyCommand implements Command {
     private final Command glc = new GuildLeaderboardCommand();
 
     @Override
-    public void execute(final MessageReceivedEvent event, final String[] args, final Map<Class<? extends Command>, Command> commandList) {
+    public void execute(final MessageReceivedEvent event, final String[] args, final GuildCommandsHandler guildCommandsHandler) {
         Timer timer = new Timer();
         final TimerTask hourlyTask = new TimerTask() {
             @Override
             public void run() {
                 if(isEnabled) {
-                    glc.execute(event, args, commandList);
+                    glc.execute(event, args, guildCommandsHandler);
                 } else {
                     timer.cancel();
                 }

@@ -2,10 +2,8 @@ package capio.command.bot_commands.utilitys;
 
 import capio.bot.CapioBot;
 import capio.command.bot_commands.Command;
+import capio.command.handle.GuildCommandsHandler;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * A command used to avoid a {@link NullPointerException} being thrown
@@ -13,7 +11,7 @@ import java.util.Map;
  */
 public class NullCommand implements Command {
     @Override
-    public void execute(final MessageReceivedEvent event, final String[] args, final Map<Class<? extends Command>, Command> commandList) {
+    public void execute(final MessageReceivedEvent event, final String[] args, final GuildCommandsHandler guildCommandsHandler) {
         event.getGuildChannel().sendMessage("Not a valid command! Use " + CapioBot.prefix + "commands to get a full list of commands.").queue();
     }
 

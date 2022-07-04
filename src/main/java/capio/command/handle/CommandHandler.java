@@ -29,7 +29,7 @@ public class CommandHandler {
             });
 
             if (!Collections.disjoint(Objects.requireNonNull(event.getMember()).getRoles(), requiredRoles)) {
-                final Thread commandThread = new Thread(() -> command.execute(event, args, guildCommandHandler.getGuildCommandList(event.getGuild()).getCommandList()));
+                final Thread commandThread = new Thread(() -> command.execute(event, args, guildCommandHandler));
                 commandThread.setUncaughtExceptionHandler((th, ex) -> {
                     ex.printStackTrace();
                     event.getGuildChannel().sendMessage("Not enough arguments!").queue();
