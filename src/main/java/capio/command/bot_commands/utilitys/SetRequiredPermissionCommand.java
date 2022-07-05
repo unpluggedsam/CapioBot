@@ -24,7 +24,7 @@ public class SetRequiredPermissionCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Each Command has a required permission to execute it. The permission can either be" +
+        return "Each Command has a required permission to execute it. The permission can either be: " +
                 "\n\n • BASIC" +
                 "\n • MOD" +
                 "\n • ADMIN" +
