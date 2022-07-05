@@ -19,7 +19,7 @@ public class ListCommand implements Command {
                 .setColor(Color.red);
 
         guildCommandsHandler.getGuildCommandList(event.getGuild()).getCommandList().values().stream().forEach(command -> {
-            embed.addField(command.getCommandName(), command.getDescription(), false);
+            embed.addField(command.getCommandName(), command.getDescription() + " \n ```PERMISSION: " + command.getPermissionEnum() + "``` \n\n\n", false);
         });
 
         event.getGuildChannel().sendMessageEmbeds(embed.build()).queue();
