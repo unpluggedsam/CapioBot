@@ -3,8 +3,8 @@ package capio.minecraft.hypixel;
 import capio.minecraft.hypixel.guild_statistics.IGuildLeveling;
 import capio.minecraft.users.Player;
 import com.google.gson.JsonObject;
-import net.dv8tion.jda.api.entities.Guild;
 import net.hypixel.api.HypixelAPI;
+import net.hypixel.api.reply.GuildReply;
 
 import java.util.concurrent.ExecutionException;
 
@@ -22,14 +22,22 @@ public class HypixelAPIHelper {
         }
     }
 
-    public static Guild getGuildByName(final String name) {
+    public static GuildReply.Guild getGuildByName(final String name) {
         try {
-            return (Guild) api.getGuildByName(name).get();
+            return api.getGuildByName(name).get().getGuild();
         } catch (ExecutionException e) {
             throw new RuntimeException(e);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static int getAmountOfMembersInGuild(final String name) {
+        return getGuildByName(name).getMembers().size();
+    }
+
+    public static int getAmountOfMembersInGuild(final GuildReply.Guild guild) {
+        return guild.getMembers().size();
     }
 
     public static Player createPlayerFromUsername(final String name) {
