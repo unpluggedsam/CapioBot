@@ -15,7 +15,6 @@ public class CommandDescriptionCommand implements Command {
         Command command = CommandBuilder.createCommand(args[1], event.getGuild());
 
         final EmbedBuilder embed = new EmbedBuilder()
-                .setTitle("Command Description")
                 .setColor(Color.red)
                 .addField(command.getCommandName(), command.getDescription(), false);
 
