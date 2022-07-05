@@ -32,7 +32,7 @@ public class ListCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "A list of all the Capio commands!";
+        return "A list of all the Capio commands.";
     }
 
     @Override
