@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import net.hypixel.api.HypixelAPI;
 import net.hypixel.api.reply.GuildReply;
 
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class HypixelAPIHelper {
@@ -39,6 +40,16 @@ public class HypixelAPIHelper {
     public static int getAmountOfMembersInGuild(final GuildReply.Guild guild) {
         return guild.getMembers().size();
     }
+
+    public static List<GuildReply.Guild.Member> getGuildsPlayers(String name) {
+        return getGuildByName(name).getMembers();
+    }
+
+    public static List<GuildReply.Guild.Member> getGuildsPlayers(final GuildReply.Guild guild) {
+        return guild.getMembers();
+    }
+
+
 
     public static Player createPlayerFromUsername(final String name) {
         try {
