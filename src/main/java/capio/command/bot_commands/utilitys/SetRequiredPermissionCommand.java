@@ -22,7 +22,13 @@ public class SetRequiredPermissionCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "sets the role for a permission";
+        return "Sets the required role to PermissionEnum. First argument is the " +
+                "type of Permission you would like to set the role to." +
+                "1. ADMIN  \n" +
+                "2. MOD \n" +
+                "3. BASIC \n" +
+                "The second argument is the role you would like to add to the permission. " +
+                "Mention the role to provide it as an argument.";
     }
 
     @Override
