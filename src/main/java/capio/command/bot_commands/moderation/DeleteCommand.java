@@ -40,7 +40,7 @@ public class DeleteCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Deletes messages. First argument is the amount of messages that are to be deleted. Provided number must be between 1 and 100.";
+        return "Deletes a given amount of messages from a channel. First argument is the amount of messages that are to be deleted. Provided number must be between 1 and 100.";
     }
 
     @Override
