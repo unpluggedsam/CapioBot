@@ -13,6 +13,8 @@ public class SetRequiredPermissionCommand implements Command {
     public void execute(MessageReceivedEvent event, String[] args, GuildCommandsHandler guildCommandsHandler) {
         guildCommandsHandler.getGuildPermissionController(event.getGuild()).get(Arrays.stream(PermissionEnum.values())
                 .filter(e -> e.name().equalsIgnoreCase(args[1])).findAny().orElse(null)).addRequiredRole(event.getMessage().getMentions().getRoles().get(0));
+
+        event.getChannel().sendMessage(String.format("Assigned %s to the %s permission.", event.getMessage().getMentions().getRoles().get(0), args[1])).queue();
     }
 
     @Override
