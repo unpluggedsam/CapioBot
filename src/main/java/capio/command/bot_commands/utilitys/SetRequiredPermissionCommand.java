@@ -22,13 +22,17 @@ public class SetRequiredPermissionCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Sets the required role to PermissionEnum. First argument is the " +
-                "type of Permission you would like to set the role to." +
-                "1. ADMIN  \n" +
-                "2. MOD \n" +
-                "3. BASIC \n" +
-                "The second argument is the role you would like to add to the permission. " +
-                "Mention the role to provide it as an argument.";
+        return "Each Command has a required permission to execute it. The permission can either be" +
+                "\n\n • BASIC" +
+                "\n • MOD" +
+                "\n • ADMIN" +
+                "\n\n These permissions can have discord roles attached to them allowing" +
+                "members in the server to access the commands. By default, the ADMIN " +
+                "permission is automatically assigned the admin role retrieved from the server. " +
+                "If the server does not have an admin role then one is created for it. Use this command" +
+                "to assign a role to a permission. The first argument is the permission that the role is being assigned " +
+                "to. The second argument is the mention of the role that is being assigned to the permission. For example: \n ```" +
+                getCommandName() + " BASIC @guest```";
     }
 
     @Override
