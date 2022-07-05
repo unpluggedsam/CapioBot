@@ -35,7 +35,7 @@ public class GuildLeaderboardCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Gets the guilds current position in the leaderboard.";
+        return "Gets a Guilds current position in level. First argument is the Guilds name that's position is being retrieved.";
     }
 
     @Override
