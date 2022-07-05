@@ -50,12 +50,12 @@ public class MuteCommand implements Command {
 
     @Override
     public String getCommandName() {
-        return "Mute";
+        return "mute";
     }
 
     @Override
     public String getDescription() {
-        return "Mute a User for a amount of time. First argument is the amount of time the User will be muted for.";
+        return "Mute a member for a amount of time. First argument is the amount of time the member will be muted for.";
     }
 
     @Override
