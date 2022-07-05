@@ -27,7 +27,7 @@ public class BanCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Ban a member. First argument is tagging the member and the second one is the reason.";
+        return "Bans a member. The first argument is the mention of the member that is being banned, and the second argument is the reason for their ban.";
     }
 
     @Override
