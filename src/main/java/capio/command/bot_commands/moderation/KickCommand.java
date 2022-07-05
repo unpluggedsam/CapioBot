@@ -31,7 +31,7 @@ public class KickCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Kicks a User. First argument is the User mention.";
+        return "Kick a member. First argument is the mention of the member who is being kicked.";
     }
 
     @Override
