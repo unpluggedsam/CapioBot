@@ -3,7 +3,6 @@ package capio.command.bot_commands.hypixel.guild;
 import capio.command.bot_commands.Command;
 
 import capio.command.handle.GuildCommandsHandler;
-import capio.minecraft.hypixel.HypixelAPIHelper;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class CurrentGuildLevelCommand implements Command {

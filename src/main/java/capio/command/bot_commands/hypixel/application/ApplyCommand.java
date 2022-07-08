@@ -2,8 +2,6 @@ package capio.command.bot_commands.hypixel.application;
 
 import capio.command.bot_commands.Command;
 import capio.command.handle.GuildCommandsHandler;
-import capio.minecraft.hypixel.HypixelAPIHelper;
-import capio.minecraft.hypixel.RequiredStatistics;
 import capio.minecraft.users.Player;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
